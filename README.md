@@ -19,6 +19,32 @@ npm run dev
 [http://localhost:5173/](http://localhost:5173/)
 
 
+### Development
+
+We have a dependency `gh-pages` that will push to the github repo in the branch `gh-pages`
+we will use this branch to deploy a github page and have free hosting ;)
+
+
+#### How to deploy
+
+1. Push the changes you want to make 
+2. Build the website
+
+```bash
+npm run build
+```
+
+If there's no errors, we are good to go 
+
+3. Push the new website 
+
+```bash
+npm run deploy
+```
+
+
+## TLDR
+
 There's really no need to learn Svelte, I just choosed it because we can 
 work in a modular way, creating components and having logic in the component level
 + svelte give us some cool tools
@@ -35,5 +61,6 @@ Typescript, no need to explain.
 using these types of "frameworks" is better to work in vanilla js and css, it can be overwellming 
 conflicting css classes and js..., with components the css is completetly isolated, no need to worry,
 and svelte does a lot of the heavy weigths.
+
 
 
