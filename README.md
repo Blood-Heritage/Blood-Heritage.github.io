@@ -45,11 +45,11 @@ npm run deploy
 
 ## TLDR
 
-There's really no need to learn Svelte, I just choosed it because we can 
+There's really no need to learn [Svelte](https://svelte.dev), I just choosed it because we can 
 work in a modular way, creating components and having logic in the component level
 plus Svelte give us some cool tools.
 
-This project also uses TailwindCSS for working with the styling, there's really no need
+This project also uses [TailwindCSS](https://tailwindcss.com) for working with the styling, there's really no need
 to write +200 lines of CSS, it uses a system of classes, it doesn't mean that css is 
 disable, we can still use it, the same as with js.
 
