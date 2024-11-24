@@ -1,14 +1,116 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Svelte + TS</title>
-    <script type="module" crossorigin src="/website/assets/index-X8xf6yDh.js"></script>
-    <link rel="stylesheet" crossorigin href="/website/assets/index-eBpNJP-Z.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!--Feuille de Style CSS-->
+    <link rel="icon" href="BH2.png"> <!--Icône du Site-->
+    <meta name="theme-color" content="#252428">
+    <title>BloodLine Heritage | Sudoers</title>
+</head>
+<body>
+    <header>
+        <img alt="BH" src="BH.png">
+    </header>
+    <nav class="SubHeader">   
+        <a href="#" title="Membres de Sudoers">Membres de Sudoers</a>
+        <a href="#" title="Logiciels">         Logiciels         </a>
+        <a href="#" title="Images">            Images            </a>
+        <a href="#" title="Sons">              Sons              </a>
+        <a href="#" title="Bibliothèques">     Bibliothèques     </a>
+        <a href="#" title="Rapport">           Rapport           </a>
+        <a href="#" title="Cahier des Charges">Cahier des Charges</a>
+    </nav>
+
+    <main>
+        <section id="Download">
+            <a href="#"><img src="Icons/Windows.png" alt="Win">PLAY ON PC</a>
+        </section>
+
+
+
+        <!--Ajouter contenu-->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+        <div id="Updates">
+            <span class="Heure">◼<time>09:55</time></span><span class="HeureEvent">Added new characters</span><br>
+            <span class="Heure">◼<time>10:00</time></span><span class="HeureEvent">New update on maps</span><br>
+            <span class="Heure">◼<time>15:03</time></span><span class="HeureEvent">Fixed bugs</span><br>
+        </div>
+    </main>
+
+
+    
+    <footer id="Barre">
+        <img alt="Logo" id="LogoBarre" src="BH2.png">
+        <a href="#">BloodLine Heritage</a>
+        <span id="Slogan"></span>    
+        <div id="Resaux">
+            <a title="Facebook"  href="#"><img alt="Facebook"  class="SocialMedia round" src="Icons/Facebook.png"></a>
+            <a title="Twitter"   href="#"><img alt="Twitter"   class="SocialMedia round" src="Icons/Twitter.jpg"></a>
+            <a title="Instagram" href="#"><img alt="Instagram" class="SocialMedia round" src="Icons/Instagram.png"></a>
+            <a title="WhatsApp"  href="#"><img alt="WhatsApp"  class="SocialMedia round" src="Icons/WhatsApp.svg"></a>
+            <a title="YouTube"   href="#"><img alt="YouTube"   class="SocialMedia      " src="Icons/YouTube.png"></a>
+            <a title="TikTok"    href="#"><img alt="TikTok"    class="SocialMedia round" src="Icons/TikTok.png"></a>
+            <a title="Pinterest" href="#"><img alt="Pinterest" class="SocialMedia round" src="Icons/Pinterest.svg"></a>
+            <a title="Snapchat"  href="#"><img alt="Snapchat"  class="SocialMedia round" src="Icons/Snapchat.png"></a>
+        </div>
+    </footer>
+    <footer id="FooterLinks">
+        <table id="TableauFooter">
+            <thead>
+                <tr>
+                    <th>SUDOERS</th>
+                    <th>LE PROJET</th>
+                    <th>EN SAVOIR PLUS</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Notre équipe</td>
+                <td>Historique</td>
+                <td>Télécharger le Jeu</td>
+            </tr>
+            <tr>
+                <td>Ethan Rouimi</td>
+                <td>Chronologie</td>
+                <td>Version allégée</td> <!--Comme demandé, sans indroductions, trucs innutiles, etc.-->
+            </tr>
+            <tr>
+                <td>Gaël Kerninon</td>
+                <td>Problèmes rencontrés</td>
+                <td>Crédits</td>
+            </tr>
+            <tr>
+                <td>Armand M.S.</td>
+                <td>Solutions envisagées</td>
+                <td>Privacy policy</td>
+            </tr>
+            <tr>
+                <td>Pierre-Antoine Soubrier</td>
+                <td>Logiciels</td>
+                <td>Terms and Conditions</tds>
+            </tr>
+            <tr>
+                <td>Amine Sabri</td>
+                <td>Images et Sons</td>
+                <td>Contact Support</td>
+            </tr>
+            <tr>
+                <td>Cahier des Charges</td>
+                <td>Bibliothèques</td>
+                <td>Rapport</td>
+            </tr>
+        </tbody></table>
+    </footer>
+    <footer id="Copyright">
+        © Copyright 2006-<span id="year">0000</span> sudoers.org • Tous droits réservés • Ce site web est la propriété de l'entreprise Sudoers - EPITA
+    </footer>
+    <script>
+        // Année
+        document.getElementById("year").innerHTML=(new Date().getFullYear());</script>
+</body>
 </html>
