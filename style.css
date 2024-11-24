@@ -1,0 +1,250 @@
+/* STYLES GLOBAUX */
+html{
+	font-size: 100%;
+	font-family:Arial;
+	scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--BackgroundColor);
+}
+::selection {
+	background-color: rgb(88, 101, 242);
+	color: rgb(255,255,255);
+}
+::-webkit-scrollbar {width: auto;background-color: rgb(241, 241, 241);} /* Barre de Scroll à droite*/
+::-webkit-scrollbar-thumb{border: 1px solid rgb(241, 241, 241); background-color: var(--mainColor);}
+:root{
+    --mainColor: #252428;
+    --secondColor: #312f36;
+    --textColor: #000000;
+    --BackgroundColor: #555555;
+}
+/* STYLES GLOBAUX */
+
+
+
+
+
+
+
+
+
+/* HEADER */
+header{
+    background-color: var(--mainColor);
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+header a{
+    font-family: Georgia, serif;
+    color: white;
+    text-decoration: none;
+    font-size: 120px;
+    font-weight: 600;
+}
+header img{
+    width: 350px;
+}
+
+.SubHeader{
+    display: flex;
+    flex-wrap: wrap;  
+    color:black;
+    width: 100%;
+    font-family: Arial,sans-serif;
+    background-color: var(--secondColor);
+    border-bottom: 1px solid var(--mainColor);
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center
+}
+
+.SubHeader a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    margin: 10px 10px 0;
+    padding-bottom: 6px;
+    border-bottom: 4px solid transparent;
+    font-family: Pilat Narrow Bold,Pilat Narrow-fallback,sans-serif;
+    font-size: .875rem;
+    line-height: 1.45rem;
+    text-transform: uppercase;
+}
+.SubHeader a:hover {
+    border-bottom-color: rgba(255, 255, 255,0.8)
+}
+/* HEADER */
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN */
+#Download{
+    background-color: #CD1103;
+    width: 30%;
+    font-size: 3em;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+#Download img{
+    width: 1em;
+    vertical-align: -7px;
+}
+#Download a{
+    color: white;
+    text-decoration: none;
+    font-family: Fira Sans,helvetica,arial,sans-serif;
+}
+#Download:hover{
+    background-color: #ef1b0b;
+    border: 1px solid white;
+    transition: .5s;
+}
+
+
+
+
+
+
+
+/*Partie sur les Mises à Jour*/
+#Updates{
+    margin: 10px 10% 30px 10%;
+    font-size: 100%;
+    color: var(--textColor);
+}
+.Heure{color:orangered;font-weight: 700;}
+.HeureEvent{font-weight: 600;margin-left: 7px;}
+
+/* MAIN */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+footer{
+    background-color: var(--mainColor);
+}
+#Barre{
+    text-align: left;
+    width: 100%;
+    position: sticky; /* Immobile */
+	bottom: 0; /* Bas de l'écran */
+    border-bottom: 1px solid rgba(255, 255, 255,0.3);
+}
+#Barre a{
+    font-family: Georgia, serif;
+    color: white;
+    text-decoration: none;
+    font-size: 45px;
+    font-weight: 600;
+}
+#Barre #LogoBarre{
+    width: 40px;
+    vertical-align: -5px;
+}
+#Barre ul {
+    display: flex;
+    width: 10%;
+    text-align: center
+}
+#Barre li {
+    display: inline-block;
+    font-family: Pilat Narrow Bold,Pilat Narrow-fallback,sans-serif;
+    text-transform: uppercase
+    
+}
+.SocialMedia{
+    width: 30px;
+    vertical-align:middle;
+    margin-right: 10px;
+    transition: transform .2s
+    }
+.SocialMedia:hover{
+    transform: scale(1.25);}
+.round{border-radius: 50%;}
+#Resaux{
+    float: right;
+    margin-right: 10px;
+}
+#FooterLinks{
+    border-bottom: 1px solid rgba(255, 255, 255,0.3);
+}
+#TableauFooter{
+    width: 90%;
+    margin: auto auto auto 10%;
+    text-align: left;
+    color: #fff;
+}
+#TableauFooter th{
+    font-family: Pilat Narrow Bold,Pilat Narrow-fallback,sans-serif;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    text-transform: uppercase;
+    opacity: .3;
+}
+#TableauFooter td{
+    font-size: .75rem;
+    line-height: 26px;
+    text-decoration: none;
+    width: 10%;
+}
+#TableauFooter td:hover{
+    cursor: pointer;
+    color: rgb(195, 195, 195);
+    text-decoration: underline;
+}
+#Slogan {
+    text-transform: uppercase;
+    font-size: 1.875rem;
+    padding-left: 50px;
+    color: #fff;
+    font-weight: 700;
+    font-family: Pilat Narrow Bold,Pilat Narrow-fallback,sans-serif;
+}
+#Copyright{
+    font-size: .6875rem;
+    padding: 20px 35px;
+    margin: auto;
+    line-height: 22px;
+    color: rgb(255, 255, 255,0.3);
+    text-align: center;
+}
+/* FOOTER */
