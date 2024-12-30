@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe - Bloodline Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/info.css">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <div class="navbar-item">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span>Home</span>
+        </div>
+        <div class="navbar-item">
+            <a href="information.html"><i class="fas fa-info-circle"></i></a>
+            <span>Information</span>
+        </div>
+        <div class="navbar-item">
+            <a href="jeu.html"><i class="fas fa-gamepad"></i></a>
+            <span>Le jeu</span>
+        </div>
+        <div class="navbar-item">
+            <a href="staff.html"><i class="fas fa-users"></i></a>
+            <span>Notre équipe</span>
+        </div>
+        <div class="navbar-item">
+            <a href="download.html"><i class="fas fa-download"></i></a>
+            <span>Jouer</span>
+        </div>
+    </div>
+
+    <main>
+
+        <section class="header">
+
+            <div class="Texteintro">
+                <h1>
+                    Informations 
+                </h1><p style="font-size:220%; color: darkgray;"> <i></i></p>
+                <br><br>
+                <h4>
+                    Voici toutes les informations que vous pouvez retrouvez sur le jeu 
+                </h4>
+            </div>
+        </section>
+
+
+
+        <section class="information">
+            <div class="category">
+                <h2 class="category-title" onclick="toggleCategory('category1')">Mise à jour</h2>
+                <ul id="category1" class="category-content">
+                    <li>Le jeu se déroule dans un univers fantastique.</li>
+                    <li>Les personnages principaux sont chargés d'une mission cruciale.</li>
+                    <li>Explorez un monde riche en mythes et légendes.</li>
+                </ul>
+            </div>
+            <div class="category">
+                <h2 class="category-title" onclick="toggleCategory('category2')">Cahier des charges</h2>
+                <ul id="category2" class="category-content">
+                    <li>Un système de combat dynamique et intuitif.</li>
+                    <li>Des énigmes complexes pour stimuler votre réflexion.</li>
+                    <li>Mode coopératif pour des aventures en équipe.</li>
+                </ul>
+            </div>
+            <div class="category">
+                <h2 class="category-title" onclick="toggleCategory('category3')">Privacy policy</h2>
+                <ul id="category3" class="category-content">
+                    <li>Héros principal : Alex, le guerrier courageux.</li>
+                    <li>Compagnon : Lila, la mage énigmatique.</li>
+                    <li>Antagoniste : Zarok, le seigneur tyrannique.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+
+        
+        function toggleCategory(id) {
+            const content = document.getElementById(id);
+            content.classList.toggle('active');
+        }
+       
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('expanded');
+            } else {
+                navbar.classList.remove('expanded');
+            }
+        });
+    </script>
+</body>
+</html>

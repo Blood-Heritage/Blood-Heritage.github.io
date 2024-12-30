@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloodline Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/index_css.css">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <div class="navbar-item">
+            <a href="./index.html"><i class="fas fa-home"></i></a>
+            <span>Home</span>
+        </div>
+        <div class="navbar-item">
+            <a href="html/information.html"><i class="fas fa-info-circle"></i></a>
+            <span>Information</span>
+        </div>
+        <div class="navbar-item">
+            <a href="html/jeu.html"><i class="fas fa-gamepad"></i></a>
+            <span>Le jeu</span>
+        </div>
+        <div class="navbar-item">
+            <a href="html/staff.html"><i class="fas fa-users"></i></a>
+            <span>Notre équipe</span>
+        </div>
+        <div class="navbar-item">
+            <a href="html/download.html"><i class="fas fa-download"></i></a>
+            <span>Jouer</span>
+        </div>
+    </div>
+
+    <header class="header">
+        <video autoplay muted loop>
+            <source src="src/Bloodline.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </header>
+
+    <section class="section">
+        <img src="src/BH2.png" alt="Game Image">
+        <div class="text">
+            <p>BlaBlaBla c'est trop beau acheter mon jeu</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <img src="src/BH2.png" alt="Game Screenshot">
+        <div class="text">
+            <p>BlaBlaBla c'est trop beau acheter mon jeu, on est exploiter</p>
+        </div>
+    </section>
+
+    <section class="download">
+        <a href="html/download.html">Télécharger</a>
+    </section>
+
+    <footer id="Copyright">
+        © Copyright 2006-<span id="year">0000</span> sudoers.org • Tous droits réservés • Ce site web est la propriété de l'entreprise Sudoers - EPITA
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('expanded');
+            } else {
+                navbar.classList.remove('expanded');
+            }
+        });
+    </script>
+</body>
+</html>
