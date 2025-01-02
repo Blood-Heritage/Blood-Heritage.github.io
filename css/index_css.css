@@ -118,7 +118,7 @@ body {
 
 .download a {
     padding: 1rem 3rem;
-    background: #0071e3;
+    background: #a12222;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -128,7 +128,7 @@ body {
 }
 
 .download a:hover {
-    background: #005bb5;
+    background: #000000;
 }
 
 @keyframes fadeIn {

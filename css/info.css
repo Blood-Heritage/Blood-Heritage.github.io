@@ -133,9 +133,9 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Style de la section header */
+ 
 .header {
-    background: linear-gradient(to right, #1d1d1d, #2a2a2a); /* Dégradé moderne */
+    background: linear-gradient(to right, #1d1d1d, #2a2a2a);
     color: white;
     text-align: center;
     padding: 4rem 2rem;
@@ -143,8 +143,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 40vh; /* Hauteur minimale pour remplir la partie supérieure */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Effet d'ombre subtile */
+    min-height: 40vh; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
 }
 
 .Texteintro h1 {
@@ -152,13 +152,13 @@ body {
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
-    animation: fadeIn 1.5s ease-in-out; /* Animation d'apparition fluide */
+    animation: fadeIn 1.5s ease-in-out;
 }
 .Texteintro p {
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
-    animation: fadeIn 1.5s ease-in-out; /* Animation d'apparition fluide */
+    animation: fadeIn 1.5s ease-in-out; 
 }
 
 .Texteintro h4 {
@@ -166,9 +166,9 @@ body {
     font-weight: normal;
     margin-top: 1rem;
     line-height: 1.6;
-    max-width: 800px; /* Limite de largeur pour un meilleur rendu */
-    opacity: 0.9; /* Légère transparence pour adoucir le texte */
-    animation: fadeInUp 2s ease-in-out; /* Animation vers le haut */
+    max-width: 800px; 
+    opacity: 0.9;
+    animation: fadeInUp 2s ease-in-out;
 }
 
 
@@ -193,7 +193,13 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
-
+.category hr {
+    height: 5px; 
+    background-color: #722727; 
+    border: none; 
+    margin: 10px auto; 
+    border-radius: 10px;
+}
 .category-title {
     padding: 1rem;
     font-size: 1.8rem;
