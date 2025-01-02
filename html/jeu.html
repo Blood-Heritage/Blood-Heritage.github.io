@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notre Équipe - Bloodline Heritage</title>
+    <title>Le Jeu - Bloodline Heritage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/game.css">    
+    <link rel="icon" href="../src/BH2.ico"> 
 
-    <link rel="stylesheet" href="../css/staff.css">
 </head>
 <body>
     <div class="navbar" id="navbar">
@@ -15,128 +16,109 @@
             <span>Home</span>
         </div>
         <div class="navbar-item">
-            <a href="information.html"><i class="fas fa-info-circle"></i></a>
+            <a href="./information.html"><i class="fas fa-info-circle"></i></a>
             <span>Information</span>
         </div>
         <div class="navbar-item">
-            <a href="jeu.html"><i class="fas fa-gamepad"></i></a>
+            <a href="./jeu.html"><i class="fas fa-gamepad"></i></a>
             <span>Le jeu</span>
         </div>
         <div class="navbar-item">
-            <a href="staff.html"><i class="fas fa-users"></i></a>
+            <a href="./staff.html"><i class="fas fa-users"></i></a>
             <span>Notre équipe</span>
         </div>
         <div class="navbar-item">
-            <a href="download.html"><i class="fas fa-download"></i></a>
+            <a href="./download.html"><i class="fas fa-download"></i></a>
             <span>Jouer</span>
         </div>
     </div>
 
-    <main>
+    <!-- Section d'introduction -->
+    <header class="header">
+        <video autoplay muted loop>
+            <source src="../src/Bloodline.mp4" type="video/mp4"> <!-- Mettre une vidéo d'un extrait du jeu-->
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+            <h1>L'Histoire de Bloodline Heritage</h1>
+            <p>Plongez dans un monde où chaque décision façonne votre héritage...</p>
+        </div>
+    </header>
 
-        <section class="header">
-
-            <div class="Texteintro">
-                <h1>
-                    Notre équipe : 
-                </h1><p style="font-size:220%; color: darkgray;"> <i>Les Sudoers</i></p>
-                <br><br>
-                <h4>
-                    fezfef,
-                    fezfef,
-                    fezfef,,
-                    fezfef
-                    fezfef
-                    fezfef,
-                    fezfef,
-                    fezfef
-                </h4>
+    <!-- Galerie multimédia -->
+    <section class="media">
+        <h2>Galerie Multimédia</h2>
+        <div class="media-list">
+            <div class="media-item">
+                <video controls>
+                    <source src="../src/Bloodline copy.mp4" type="video/mp4">
+                </video>
+                <p>Gameplay - Niveau 1</p>
             </div>
-        </section>
-        
-
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <section class="section">
-            
-            <img src="../src/sudoers_img/er.png" alt="Ethan Rouimi">
-            <div class="text">
-                <h2>Ethan Rouimi</h2>
-                <p>
-                    Leader de l’équipe, Ethan guide les Sudoers dans ce projet. Ses expériences de gestion d’équipe  
-                    lors de précédent projets lui ont appris à gérer la pression et à transformer des idées en réalisations concrètes. 
-                    Il trouve son épanouissement en aidant ses coéquipiers à se surpasser. Son grand objectif : transformer ce projet de jeu en un succès collectif.                </p>
+            <div class="media-item">
+                <img src="../src/BH-noir.png" alt="Capture d'écran 1">
+                <p>Capture d'écran - Scène de combat</p>
             </div>
-        </section>
-
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <section class="section reverse">
-            <img src="../src/sudoers_img/ams.png" alt="Armand MS">
-            <div class="text">
-                <h2>Armand MS</h2>
-                <p>
-                    Depuis son jeune âge, Armand explore l’univers numérique comme un véritable terrain de jeu. 
-                    Du développement d’un serveur communautaire sur un Jeu Vidéo, au lycée à ses études actuelles en informatique, il n’a cessé d’élargir ses horizons.
-                     Pour lui, ce projet est l’occasion de mettre à profit ses expériences.                
-                    </p>
+            <div class="media-item">
+                <video controls>
+                    <source src="../src/Bloodline copy.mp4" type="video/mp4">
+                </video>
+                <p>Gameplay - Exploration</p>
             </div>
-        </section>
-
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <section class="section">
-            <img src="../src/sudoers_img/gk.png" alt="Gael Kerninon">
-            <div class="text">
-                <h2>Gael Kerninon</h2>
-                <p>
-                    Passionné d’informatique et de culture bretonne,
-                     Gaël voit chaque projet comme une opportunité de faire valoir ses grandes qualités :  créer, structurer et partager. 
-                     Ses valeurs, voilà ce qui le motive. Pour lui, ce projet est une nouvelle façon d’explorer et de transmettre.
-                </p>
+            <div class="media-item">
+                <img src="../src/BH-noir.png" alt="Capture d'écran 2">
+                <p>Capture d'écran - Environnement</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-
-        <section class="section reverse">
-            <img src="../src/sudoers_img/amine.sabri.png" alt="Profil de Sophie Laurent">
-            <div class="text">
-                <h2>Amine Sabri</h2>
-                <p>
-                    Amine est un homme déterminé. Malgré l'adversité, il avance avec une soif d’apprendre et de progresser. 
-                    Ce projet est pour lui une étape importante : un terrain d’entraînement pour ses compétences et une chance de 
-                    collaborer avec des personnes aussi passionnées que lui. Il y voit l’opportunité de transformer ses ambitions en réalité.
-                </p>
+    <!-- Avis des joueurs -->
+    <section class="feedback">
+        <h2>Ce qu'en disent les joueurs</h2>
+        <div class="feedback-list">
+            <div class="feedback-item">
+                <blockquote>
+                    "Un chef-d'œuvre visuel et narratif. Chaque moment est une œuvre d'art !" - <strong>Joueur A</strong>
+                </blockquote>
             </div>
-        </section>
-
-            <br><br><br>
-            <br><br><br>
-            <br><br><br>
-            <br><br><br>
-        <section class="section">
-            <img src="../src/sudoers_img/pierre-antoine.soubrier.png" alt="Pierre-Antoine Soubrier">
-            <div class="text">
-                <h2>Pierre-Antoine Soubrier</h2>
-                <p>
-                    Pierre-Antoine est un passionné d’informatique et de culture. Qu’il s’agisse d’assembler un projet ou, dans la vie de tous les jours, 
-                    il cherche toujours à apporter une touche unique. Avec ses inspirations tirées de l’Histoire et des grands noms de l’informatique (tels que Ada Lovelace ou Alan Turing), 
-                    il aime transformer chaque projet en une aventure riche en détails et originalité.                </p>
+            <div class="feedback-item">
+                <blockquote>
+                    "Une immersion totale. Ce jeu est incroyable !" - <strong>Joueur B</strong>
+                </blockquote>
             </div>
-        </section>
-    </main>
+            <div class="feedback-item">
+                <blockquote>
+                    "L'expérience la plus mémorable que j'ai vécue dans un jeu vidéo." - <strong>Joueur C</strong>
+                </blockquote>
+            </div>
+        </div>
+    </section>
 
+    <footer id="Copyright">
+        © Copyright 2006-<span id="year">0000</span> sudoers.org • Tous droits réservés • Ce site web est la propriété de l'entreprise Sudoers - EPITA
+    </footer>
+    <footer id="Copyright">
+        © Copyright 2024-2025 blood-heritage.github.io • Tous droits réservés • Ce site web est la propriété de l'entreprise Sudoers - EPITA
+    </footer>
     <script>
         const navbar = document.getElementById('navbar');
+        const observerOptions = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const animateSections = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(animateSections, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('expanded');
