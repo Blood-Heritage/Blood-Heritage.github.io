@@ -5,29 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informations - Bloodline Heritage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <link rel="icon" href="../src/BH2.ico"> 
     <link rel="stylesheet" href="../css/info.css">
 </head>
 <body>
     <div class="navbar" id="navbar">
-        <div class="navbar-item">
+        <div class="navbarItem">
             <a href="../index.html"><i class="fas fa-home"></i></a>
             <span>HOME</span>
         </div>
-        <div class="navbar-item">
+        <div class="navbarItem">
             <a href="information.html"><i class="fas fa-info-circle"></i></a>
             <span>INFORMATIONS</span>
         </div>
-        <div class="navbar-item">
+        <div class="navbarItem">
             <a href="jeu.html"><i class="fas fa-gamepad"></i></a>
             <span>LE JEU</span>
         </div>
-        <div class="navbar-item">
+        <div class="navbarItem">
             <a href="staff.html"><i class="fas fa-users"></i></a>
             <span>NOTRE ÉQUIPE</span>
         </div>
-        <div class="navbar-item">
+        <div class="navbarItem">
             <a href="download.html"><i class="fas fa-download"></i></a>
             <span>JOUER</span>
         </div>
@@ -51,26 +50,80 @@
 
 
         <section class="information">
+            <!--Catégorie 1-->
             <div class="category">
-                <h2 class="category-title" onclick="toggleCategory('category1')">Mise à jour</h2>
-                <ul id="category1" class="category-content">
+                <h2 class="categoryTitle" onclick="toggleCategory('category1')">Mises à jour</h2>
+                <ul id="category1" class="categoryContent">
                     <hr>
                     <li><strong style="color: grey;">31.12.2024 | 08:00pm :</strong>  Lancement du Site Web</li>
-                    <li><strong style="color: grey;">09.01.2025 | 06:25pm :</strong>  Corrections et Optimisation</li>
+                    <li><strong style="color: grey;">02.01.2025 | 06:25pm :</strong>  Corrections et Optimisation</li>
+                    <li><strong style="color: grey;">03.01.2025 | 09:55am :</strong>  Ajout de la Politique de Condidentialité</li>
+                    <li><strong style="color: grey;">11.01.2025 | 02:40pm :</strong>  Ajout de Liens Externes vers les Documents du Projet</li>
                     <hr>
                 </ul>
             </div>
+
+            <!--Catégorie 2-->
             <div class="category">
-                <h2 class="category-title" onclick="toggleCategory('category2')">Cahier des charges</h2>
-                <ul id="category2" class="category-content">
-                    A vous de me dire quelles catégories sont utiles
-                </ul>
+                <h2 class="categoryTitle" onclick="toggleCategory('category2')">Cahier des Charges</h2>
+                <section id="category2" class="categoryContent">
+                    <h3>Choisissez un format pour le Cahier des Charges</h3>
+                    <h4>Cahier des Charges Fonctionnel</h4>
+                        <a href="../src/cdc.pdf" class="button" target="_blank">GDOC</a>
+                        <a href="../src/cdclatex.pdf" class="button" target="_blank">LaTeX</a>
+                    <h4>Cahier des Charges Technique</h4>
+                        <a href="../src/cdct.pdf" class="button" target="_blank">PDF</a>
+                        <a href="https://epitafr-my.sharepoint.com/:w:/r/personal/gael_kerninon_epita_fr/Documents/CdCT_PROJET_S2_2024-25_FR.docx?d=wd8ba6a8fdcf1498eb74b501e0fe7ab52&csf=1&web=1&e=f4lSva" class="button" target="_blank">DOCX</a>
+                        
+                </section>
             </div>
+            
+            <!--Catégorie 3-->
             <div class="category">
-                <h2 class="category-title" onclick="toggleCategory('category3')">Privacy policy</h2>
-                <ul id="category3" class="category-content">
-                    A écrire..
-                </ul>
+                <h2 class="categoryTitle" onclick="toggleCategory('category3')">Rapport</h2>
+                <section id="category3" class="categoryContent">
+                    <h3>Choisissez un format pour le Cahier des Charges</h3>
+                    <h4>Rapport du 15 Janvier 2025</h4>
+                        <a href="" class="button" target="_blank">PDF</a>
+                        <a href="" class="button" target="_blank">LaTeX</a>                        
+                </section>
+            </div>
+
+            <!--Catégorie 4-->
+            <div class="category">
+                <h2 class="categoryTitle" onclick="toggleCategory('category4')">Privacy Policy</h2>
+                <section id="category4" class="categoryContent">
+
+                    <h3>POLITIQUE DE CONFIDENTIALITÉ</h3>
+                    
+                    <h4>Introduction</h4>
+                    <p>La présente politique de confidentialité décrit la manière dont nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre jeu, Bloodline Heritage. Nous nous engageons à respecter votre vie privée et à protéger vos données personnelles conformément aux lois applicables en matière de confidentialité et de protection des données.</p>
+                    
+                    <h4>Informations que nous collectons</h4>
+                    <p>Nous nous accordons le droit de récolter différentes informations lorsque vous utilisez notre jeu, notamment les informations personnelles : Lorsque vous créez un compte ou vous vous inscrivez pour jouer, nous pouvons collecter des informations telles que votre nom, adresse e-mail, et toute autre information que vous choisissez de fournir. Des informations de jeu : Nous collectons des données relatives à votre utilisation du jeu, telles que votre progression, votre score, vos actions dans le jeu, et toute autre information liée à votre expérience de jeu ainsi que des informations techniques : Nous pouvons collecter des informations techniques, telles que votre adresse IP, le type de votre appareil, votre système d’exploitation, les identifiants de votre appareil, et les données de diagnostic liées à l’utilisation du jeu.</p>
+                    
+                    <h4>Utilisation des informations</h4>
+                    <p>Les informations que nous collectons sont utilisées pour les finalités suivantes : D’une part, améliorer l’expérience de jeu pour personnaliser votre expérience et améliorer la qualité de notre jeu. D’autre part, pour le support et l’assistance pour fournir un support technique et résoudre toute demande liée au jeu. Par ailleurs, pour analyser les tendances et le comportement des utilisateurs pour comprendre comment les utilisateurs interagissent avec notre jeu, afin d’améliorer nos services. Conformité légale : Nous pouvons utiliser vos informations pour nous conformer à nos obligations légales.</p>
+                    
+                    <h4>Partage des informations</h4>
+                    <p>Nous nous engageons à ne pas vendre, louer ou partager vos informations personnelles avec des tiers à des fins commerciales. Toutefois, nous pouvons partager vos informations dans les situations suivantes : la première, avec nos partenaires de service, nous pouvons partager vos informations avec des fournisseurs tiers qui nous aident à fournir des services liés au jeu (par exemple, services d’hébergement, analyse de données, etc.) et d’autre part pour répondre à des obligations légales : nous pouvons divulguer vos informations si cela est nécessaire pour se conformer à une obligation légale, protéger nos droits ou ceux d’autres personnes, ou en réponse à une demande légale comme une assignation ou une ordonnance d’un tribunal.</p>
+                    
+                    <h4>Sécurité des données</h4>
+                    <p>Nous mettons en place des mesures de sécurité appropriées pour protéger vos informations personnelles contre l’accès non autorisé, la modification, la divulgation ou la destruction. Cependant, aucune méthode de transmission sur Internet ou de stockage électronique n'est totalement sécurisée, et nous ne pouvons garantir une sécurité absolue.</p>
+                    
+                    <h4>Vos droits</h4>
+                    <p>En fonction de la législation applicable, vous pouvez bénéficier de plusieurs droits concernant vos données personnelles. Ces droits incluent le droit d'accès, qui vous permet de demander des informations sur les données personnelles que nous avons collectées à votre sujet, ainsi que le droit de rectification, vous autorisant à demander la correction ou la mise à jour de vos informations si elles sont inexactes ou incomplètes. Vous disposez également du droit à l’effacement, vous permettant de demander la suppression de vos données personnelles, sous réserve de certaines exceptions légales. En outre, vous avez le droit à la portabilité, ce qui vous permet de demander la transmission de vos informations personnelles dans un format structuré et lisible par machine. Enfin, si nous recueillons vos informations sur la base de votre consentement, vous avez la possibilité de retirer ce consentement à tout moment. Pour exercer ces droits, veuillez nous contacter à l'adresse indiquée dans la section Contact ci-dessous.</p>
+                    
+                    <h4>Cookies et technologies similaires</h4>
+                    <p>Nous utilisons des cookies et des technologies similaires pour améliorer votre expérience de jeu et analyser l’utilisation de notre jeu. Vous pouvez choisir de désactiver les cookies dans les paramètres de votre navigateur, mais cela pourrait affecter votre expérience de jeu.</p>
+                    
+                    <h4>Modifications de la politique de confidentialité</h4>
+                    <p>Nous nous réservons le droit de mettre à jour cette politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec la date de mise à jour. Nous vous encourageons à consulter régulièrement cette politique pour être informés des éventuelles modifications.</p>
+                    
+                    <h4>Contact</h4>
+                    <p>Si vous avez des questions concernant cette politique de confidentialité ou si vous souhaitez exercer vos droits, veuillez nous contacter à l’adresse suivante :
+                        <a href="mailto:gael.kerninon@epita.fr">gael.kerninon@epita.fr</a></p>
+                </section>
             </div>
         </section>
     </main>
