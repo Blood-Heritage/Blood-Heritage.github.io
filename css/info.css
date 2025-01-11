@@ -5,6 +5,20 @@ body {
     color: #333;
 }
 
+::selection {
+	background-color: #a12222;
+	color: rgb(255,255,255);
+}
+::-webkit-scrollbar {width: auto;background-color: rgb(241, 241, 241);} /* Barre de Scroll à droite*/
+::-webkit-scrollbar-thumb{border: 1px solid rgb(241, 241, 241); background-color: var(--mainColor);}
+:root{
+    --mainColor: #252428;
+    --secondColor: #312f36;
+    --textColor: #000000;
+    --BackgroundColor: #555555;
+}
+
+
 .navbar {
     position: fixed;
     top: 0;
@@ -254,4 +268,8 @@ body {
     background-color: #2a2a2a;
     transform: scale(1.1);
     transition: 0.5s;
+}
+
+#category4{
+    text-align: justify;
 }
