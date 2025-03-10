@@ -6,81 +6,135 @@
     <title>Bloodline Heritage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/index_css.css">
-    <link rel="icon" href="src/BH2.ico"> 
+    <link rel="icon" href="src/BH2.ico">
 </head>
 <body>
-    <div class="navbar" id="navbar">
-        <div class="navbar-item">
-            <a href="./index.html"><i class="fas fa-home"></i></a>
-            <span>HOME</span>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="navbar-item">
+                <a href="./index.html"><i class="fas fa-home"></i></a>
+                <span>HOME</span>
+            </div>
+            <div class="navbar-item">
+                <a href="html/information.html"><i class="fas fa-info-circle"></i></a>
+                <span>INFORMATIONS</span>
+            </div>
+            <div class="navbar-item">
+                <a href="html/jeu.html"><i class="fas fa-gamepad"></i></a>
+                <span>LE JEU</span>
+            </div>
+            <div class="navbar-item">
+                <a href="html/staff.html"><i class="fas fa-users"></i></a>
+                <span>ÉQUIPE</span>
+            </div>
+            <div class="navbar-item">
+                <a href="html/download.html"><i class="fas fa-download"></i></a>
+                <span>JOUER</span>
+            </div>
         </div>
-        <div class="navbar-item">
-            <a href="html/information.html"><i class="fas fa-info-circle"></i></a>
-            <span>INFORMATIONS</span>
-        </div>
-        <div class="navbar-item">
-            <a href="html/jeu.html"><i class="fas fa-gamepad"></i></a>
-            <span>LE JEU</span>
-        </div>
-        <div class="navbar-item">
-            <a href="html/staff.html"><i class="fas fa-users"></i></a>
-            <span>NOTRE ÉQUIPE</span>
-        </div>
-        <div class="navbar-item">
-            <a href="html/download.html"><i class="fas fa-download"></i></a>
-            <span>JOUER</span>
-        </div>
-    </div>
+    </nav>
 
     <header class="header">
-        <video autoplay muted loop>
-            <source src="src/Bloodline.mp4" type="video/mp4">
-            Il semblerait que ton navigateur ne supporte pas le format vidéo.
+        <div class="video-overlay"></div>
+        <video id="header-video" autoplay muted loop playsinline>
+            <source id="video-source" src="src/Bloodline.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas les vidéos HTML5.
         </video>
+        <div class="header-content">
+            <h1 class="header-title"></h1>
+        </div>
     </header>
 
-    <section class="section">
-        <img src="src/Banque.png" alt="Game Image">
-        <div class="text">
-            <p>Plongez dans la peau d’un jeune mafieux déterminé à faire régner la loi de la rue.<br>
-                Traquez et éliminez méthodiquement les agents du <b>FBI</b> qui se dressent sur votre chemin.<br>
-                Chaque cible abattue vous rapproche un peu plus de votre ultime objectif : le chef de l'escouade.<br>
-                <b>La vengeance n'attend pas !</b>
-                
-                </p>
-        </div>
-    </section>
-
-    <section class="section">
-        <video loop="true" autoplay="true" poster="src/BH2.png">
+    <!-- Contenu principal -->
+    <main>
+        <!-- Section 1 -->
+        <section class="section animate-on-scroll">
             
-            <source src="src/Map.mp4" type="video/mp4">
-            Vidéo ne peut être lue
-        </video>
+            <div class="text-content text-box">
+                <p>Plongez dans la peau d'un jeune mafieux déterminé à faire régner la loi de la rue.<br>
+                    Traquez et éliminez méthodiquement les agents du <b>FBI</b> qui se dressent sur votre chemin.<br>
+                    <span class="highlight-text">La vengeance n'attend pas !</span>
+                </p>
+            </div>
+            
+            <div class="media-container">
+                <img src="src/Banque.png" alt="Game Image" class="section-media">
+            </div>
+            
+        </section>
 
-        <div class="text">
-            <p><b>Explorez</b> la ville, <b>corrompez</b> la police, et <b>récoltez</b> des indices précieux en traquant et éliminant méthodiquement les agents du FBI.</p>
-        </div>
-    </section>
+        <!-- Section 2 (inversée) -->
+        <section class="section animate-on-scroll reverse">
+            
+            <div class="text-content text-box">
+                <p>
+                    <b>Explorez</b> la ville, <b>corrompez</b> la police, et <b>récoltez</b> des indices précieux.
+                    <br><span class="highlight-text">La ville vous appartient chef !</span>
+                </p>
 
-    <section class="download">
-        
-        <a href="html/download.html"><img src="Icons/Windows.png" style="width: 1em; vertical-align: -3px;" alt="Win"> Télécharger</a>
-    </section>
+            </div>
+            
+            <div class="media-container">
+                <video loop muted autoplay playsinline poster="src/BH2.png">
+                    <source src="src/Map.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
 
-    <footer id="Copyright">
-        © Copyright 2024-2025 blood-heritage.github.io • Tous droits réservés • Ce site web est la propriété de l'entreprise <strong style="text-decoration:underline;">Sudoers</strong> - EPITA
+        <!-- Section Téléchargement -->
+        <section class="download-section animate-on-scroll">
+            <a href="html/download.html" class="download-button">
+                <img src="Icons/Windows.png" class="windows-icon" alt="Windows">
+                <span>TÉLÉCHARGER</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="copyright">
+            © 2024-2025 blood-heritage.github.io • Tous droits réservés<br>
+            <span class="company">SUDOERS</span> - EPITA
+        </p>
     </footer>
 
     <script>
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('expanded');
-            } else {
-                navbar.classList.remove('expanded');
-            }
+        // Animation au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            observer.observe(element);
         });
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        function updateVideoSource() {
+            const video = document.getElementById('header-video');
+            const source = document.getElementById('video-source');
+            
+            if (window.innerWidth < 1047) {
+                source.src = "src/Logo-BH-mobile.mp4";
+            } else {
+                source.src = "src/Bloodline.mp4";
+            }
+            
+            video.load();
+        }
+    
+        // Vérifier au chargement et lors du redimensionnement
+        window.addEventListener('load', updateVideoSource);
+        window.addEventListener('resize', updateVideoSource);
     </script>
 </body>
 </html>
