@@ -1,129 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Jeu - Bloodline Heritage</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/game.css">    
-    <link rel="icon" href="../src/BH2.ico"> 
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Jeu - Bloodline Heritage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/game.css">
+  <link rel="icon" href="../src/BH2.ico">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
-    <div class="navbar" id="navbar">
-        <div class="navbar-item">
-            <a href="../index.html"><i class="fas fa-home"></i></a>
-            <span>HOME</span>
-        </div>
-        <div class="navbar-item">
-            <a href="information.html"><i class="fas fa-info-circle"></i></a>
-            <span>INFORMATIONS</span>
-        </div>
-        <div class="navbar-item">
-            <a href="jeu.html"><i class="fas fa-gamepad"></i></a>
-            <span>LE JEU</span>
-        </div>
-        <div class="navbar-item">
-            <a href="staff.html"><i class="fas fa-users"></i></a>
-            <span>NOTRE ÉQUIPE</span>
-        </div>
-        <div class="navbar-item">
-            <a href="download.html"><i class="fas fa-download"></i></a>
-            <span>JOUER</span>
-        </div>
+  <div class="navbar" id="navbar">
+    <div class="navbar-item">
+      <a href="../index.html"><i class="fas fa-home"></i></a>
+      <span>HOME</span>
     </div>
-    
-    <!-- Section d'introduction -->
-    <header class="header">
-        <video autoplay muted loop>
-            <source src="../src/Bloodline.mp4" type="video/mp4"> <!-- Mettre une vidéo d'un extrait du jeu-->
-            Your browser does not support the video tag.
-        </video>
-        <div class="overlay">
-            <h1>L'Histoire de Bloodline Heritage</h1>
-            <p>Plongez dans l'histoire de Giovanni, un mafieux italien prêt à tout <br> pour venger sa famille...</p>
+    <div class="navbar-item">
+      <a href="information.html"><i class="fas fa-info-circle"></i></a>
+      <span>INFORMATIONS</span>
+    </div>
+    <div class="navbar-item">
+      <a href="jeu.html"><i class="fas fa-gamepad"></i></a>
+      <span>LE JEU</span>
+    </div>
+    <div class="navbar-item">
+      <a href="staff.html"><i class="fas fa-users"></i></a>
+      <span>NOTRE ÉQUIPE</span>
+    </div>
+    <div class="navbar-item">
+      <a href="download.html"><i class="fas fa-download"></i></a>
+      <span>JOUER</span>
+    </div>
+  </div>
+
+  <!-- Section d'introduction -->
+  <header class="header">
+    <video autoplay muted loop>
+      <source src="../src/Bloodline.mp4" type="video/mp4"> <!-- Mettre une vidéo d'un extrait du jeu-->
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <h1>L'Histoire de Bloodline Heritage</h1>
+      <p>Plongez dans l'histoire de Giovanni, un mafieux italien prêt à tout <br> pour venger sa famille...</p>
+    </div>
+  </header>
+
+  <!-- Galerie multimédia -->
+  <section class="media">
+    <h2>Galerie Multimédia</h2>
+    <div class="media-list">
+      <div class="media-item">
+        <div class="flex items-center h-full">
+          <video controls>
+            <source src="../src/Bloodline copy.mp4" type="video/mp4">
+          </video>
         </div>
-    </header>
+        <p class="">Bande d'annonce Bloodline Heritage</p>
+      </div>
+      <div class="media-item">
+        <img src="../Icons/GameImage/giovani.png" alt="Capture d'écran 1">
+        <p>Giovanni</p>
+      </div>
+      <div class="media-item">
+        <div class="flex items-center h-full">
 
-    <!-- Galerie multimédia -->
-    <section class="media">
-        <h2>Galerie Multimédia</h2>
-        <div class="media-list">
-            <div class="media-item">
-                <video controls>
-                    <source src="../src/Bloodline copy.mp4" type="video/mp4">
-                </video>
-                <p>Bande d'annonce Bloodline Heritage</p>
-            </div>
-            <div class="media-item">
-                <img src="../Icons/GameImage/giovani.png" alt="Capture d'écran 1">
-                <p>Giovanni</p>
-            </div>
-            <div class="media-item">
-                <video controls>
-                    <source src="../Icons/GameImage/BH-GamePlay.mp4" type="video/mp4">
-                </video>
-                <p>Gameplay</p>
-            </div>
-            <div class="media-item">
-                <img src="../src/BH-noir.png" alt="Capture d'écran 2">
-                <p>La mafia</p>
-            </div>
+          <video controls>
+            <source src="../Icons/GameImage/BH-GamePlay.mp4" type="video/mp4">
+          </video>
         </div>
-    </section>
+        <p>Gameplay</p>
+      </div>
+      <div class="media-item">
+        <img src="../src/BH-noir.png" alt="Capture d'écran 2">
+        <p>La mafia</p>
+      </div>
+    </div>
 
-    <!-- Avis des joueurs -->
-    <section class="feedback">
-        <h2>Ce qu'en disent les joueurs</h2>
-        <div class="feedback-list">
-            <div class="feedback-item">
-                <blockquote>
-                    "J'adore ce jeu et son graphisme" - <strong>P-A</strong>
-                </blockquote>
-            </div>
-            <div class="feedback-item">
-                <blockquote>
-                    "Un jeu immersif, on se croirait dans la peau d'un mafieux italien !" - <strong>José</strong>
-                </blockquote>
-            </div>
-            <div class="feedback-item">
-                <blockquote>
-                    "I love this game hahahahah" - <strong>Modrix</strong> 
-                </blockquote>
-            </div>
-        </div>
-    </section>
+    <style>
 
-    
-    <footer id="Copyright">
-        © Copyright 2024-2025 blood-heritage.github.io • Tous droits réservés • Ce site web est la propriété de l'entreprise Sudoers - EPITA
-    </footer>
-    <script>
-        const navbar = document.getElementById('navbar');
-        const observerOptions = {
-            root: null,
-            threshold: 0.1
-        };
+    </style>
+  </section>
 
-        const animateSections = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        };
+  <!-- Avis des joueurs -->
+  <section class="feedback">
+    <h2>Ce qu'en disent les joueurs</h2>
+    <div class="feedback-list">
+      <div class="feedback-item">
+        <blockquote>
+          "J'adore ce jeu et son graphisme" - <strong>P-A</strong>
+        </blockquote>
+      </div>
+      <div class="feedback-item">
+        <blockquote>
+          "Un jeu immersif, on se croirait dans la peau d'un mafieux italien !" - <strong>José</strong>
+        </blockquote>
+      </div>
+      <div class="feedback-item">
+        <blockquote>
+          "I love this game hahahahah" - <strong>Modrix</strong>
+        </blockquote>
+      </div>
+    </div>
+  </section>
 
-        const observer = new IntersectionObserver(animateSections, observerOptions);
 
-        document.querySelectorAll('section').forEach(section => observer.observe(section));
+  <footer id="Copyright">
+    © Copyright 2024-2025 blood-heritage.github.io • Tous droits réservés • Ce site web est la propriété de l'entreprise
+    Sudoers - EPITA
+  </footer>
+  <script>
+    const navbar = document.getElementById('navbar');
+    const observerOptions = {
+      root: null,
+      threshold: 0.1
+    };
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('expanded');
-            } else {
-                navbar.classList.remove('expanded');
-            }
-        });
-    </script>
+    const animateSections = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(animateSections, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('expanded');
+      } else {
+        navbar.classList.remove('expanded');
+      }
+    });
+  </script>
 </body>
+
 </html>
