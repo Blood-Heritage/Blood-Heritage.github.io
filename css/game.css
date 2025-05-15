@@ -91,7 +91,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000000;
+  background-color: #000000d0;
 }
 
 .header video {
@@ -100,9 +100,17 @@ body {
   object-fit: cover;
 }
 
-.overlay {
-  margin-left: 5%;
-  color: #aeaeae88;
+
+.overlay{
+    margin-left: 5%;
+    color: #9c9c9c;
+    font-family: Helvetica;
+    margin: auto;
+    font-size: 1.2em;
+}
+
+.overlay h1{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .section {

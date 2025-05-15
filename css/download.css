@@ -27,6 +27,7 @@ body {
   --secondColor: #312f36;
   --textColor: #000000;
   --BackgroundColor: #555555;
+    --second-red: #791717;
 }
 
 
@@ -153,8 +154,7 @@ body {
 }
 
 .download a:hover {
-  background: #dbdbdb;
-  color: #000;
+  background: var(--second-red);
 }
 
 @keyframes fadeIn {
@@ -185,6 +185,7 @@ body {
   text-align: center;
   padding: 4rem 2rem;
   display: flex;
+  
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -193,9 +194,10 @@ body {
 }
 
 .Texteintro h1 {
+  text-transform: capitalize;
   font-size: 3rem;
-  font-weight: bold;
-  margin: 0;
+  margin-top: 100rem;
+  margin: 20px 0 0;
   line-height: 1.2;
   animation: fadeIn 1.5s ease-in-out;
 }

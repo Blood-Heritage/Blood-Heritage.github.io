@@ -1,5 +1,6 @@
 :root {
   --main-color: #a12222;
+  --second-red: #791717;
   --dark-bg: #252428;
   --text-light: #ffffff;
   --text-dark: #333333;
@@ -117,11 +118,11 @@ body {
   0% {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
   }
-
+  
   50% {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
   }
-
+  
   100% {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
   }
@@ -139,7 +140,7 @@ body {
   from {
     transform: scale(1.05);
   }
-
+  
   to {
     transform: scale(1.1);
   }
@@ -162,32 +163,21 @@ body {
 }
 
 .text-box {
-  background: rgba(0, 0, 0, 0.7);
-  /* Fond semi-transparent sombre */
-  border-left: 5px solid var(--main-color);
-  /* Bordure colorée sur la gauche */
-  border-radius: 10px;
-  /* Coins arrondis */
+  background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent sombre */
+  border-left: 6px solid var(--main-color);  /* Bordure colorée sur la gauche */
+  border-radius: 10px; /* Coins arrondis */
   padding: 1.5rem;
   color: rgb(10, 10, 10);
-  font-size: 1.2rem;
   font-weight: 500;
   text-align: left;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  /* Ombre pour un effet de relief */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);  /* Ombre pour un effet de relief */
   transition: transform 0.3s ease-in-out;
-}
-
-.text-box:hover {
-  transform: scale(1.02);
-  /* Effet de léger zoom au survol */
 }
 
 .highlight-text {
   color: var(--main-color);
   font-weight: bold;
 }
-
 
 /* Sections */
 .section {
@@ -238,7 +228,7 @@ body {
 .text-content {
   flex: 1 1 45%;
   padding: 3rem;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   backdrop-filter: blur(5px);
@@ -272,8 +262,8 @@ body {
 }
 
 .download-button:hover {
-  background: var(--dark-bg);
-  transform: scale(1.05);
+  background: var(--second-red);
+  transform: scale(1.10);
 }
 
 .windows-icon {
@@ -289,9 +279,15 @@ body {
   padding: 2rem;
 }
 
+.copyright a{
+  color:inherit;
+  text-decoration: none;
+}
+
 .company {
   color: var(--main-color);
   font-weight: bold;
+  text-decoration: none;
 }
 
 /* Responsive Mobile */
