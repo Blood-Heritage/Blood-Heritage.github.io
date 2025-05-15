@@ -1,2 +1,0 @@
-# Redirige toutes les erreurs 404 vers une page spécifique
-ErrorDocument 404 ./404.html
