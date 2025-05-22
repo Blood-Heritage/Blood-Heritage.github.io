@@ -220,6 +220,16 @@ body {
   animation: fadeInUp 2s ease-in-out;
 }
 
+#DifficultesInstallation{
+  color: rgb(70, 70, 70);
+}
+#DifficultesInstallation a{
+  color: inherit;
+}
+#DifficultesInstallation a:hover{
+  color: #9c4646;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

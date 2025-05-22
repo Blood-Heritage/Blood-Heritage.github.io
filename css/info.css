@@ -274,7 +274,8 @@ body {
 }
 
 #category2 .container,
-#category3 .container {
+#category3 .container,
+#category4 .container {
   text-align: center;
   background-color: white;
   padding: 30px;
@@ -283,7 +284,8 @@ body {
 }
 
 #category2 .button,
-#category3 .button {
+#category3 .button,
+#category4 .button {
   display: inline-block;
   margin: 10px;
   padding: 15px 25px;
@@ -296,7 +298,8 @@ body {
 }
 
 #category2 .button:hover,
-#category3 .button:hover {
+#category3 .button:hover,
+#category4 .button:hover {
   background-color: #2a2a2a;
   transform: scale(1.1);
   transition: 0.5s;
