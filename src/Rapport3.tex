@@ -1,0 +1,1152 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{graphicx} % Pour inclure des images
+\usepackage[french]{babel} % Language setting
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+
+% Configuration des marges
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+% Activation du package fancyhdr
+\pagestyle{fancy}
+\fancyhf{} % Réinitialise les styles par défaut
+
+% Configuration de l'en-tête
+\fancyhead[L]{Sudoers}       % Gauche
+\fancyhead[C]{Rapport de Soutenance}     % Centre
+\fancyhead[R]{27 mai 2025}                % Droite
+
+% Configuration du pied de page
+\fancyfoot[C]{\thepage}              % Numéro de page centré
+
+
+\titleformat{\chapter}[display]{\bfseries\Huge\raggedright}{Partie \thechapter}{1em}{\vspace{1cm}} % Redéfinition de \chapter pour afficher "Partie" et sauter une ligne après
+
+\title{
+    \Huge Rapport de Soutenance \\
+    \includegraphics[width=10cm]{Icons/BloodlineHeritage.png}
+}
+\author{\huge Sudoers}
+\date{\huge 27 mai 2025}
+
+
+
+\begin{document}
+
+\maketitle % Afficher le Titre et l'Auteur
+
+
+% Liste des membres
+\vspace{1cm} % Espace vertical pour bien séparer
+\tableofcontents
+
+
+\part{Informations Générales}
+\chapter{Informations Générales}
+\section*{Introduction}
+Ce premier rapport présente ce qui a été réalisé par notre entreprise depuis l'approbation du cahier des charges du jeu Bloodline Heritage.
+
+\section{Informations sur le Projet}
+
+\subsection{Objectifs}
+
+
+\subsection{Nature et Enjeux}
+
+Lorsque nous avons été chargés de faire ce projet, nous avons opté pour la création d’un jeu qui avant tout nous représente et nous séduit. Après avoir eu des discussions autour du projet, il a rapidement été décidé que le style du jeu serait du RPG. Flexible, stratégique et personnalisable, il était le support parfait pour nos très nombreuses idées. Par ailleurs, le choix du thème, fut dès lors une priorité. Pour garantir que le jeu soit immersif, nous avons réfléchi à une époque relativement récente afin que le contexte de l’époque soit facilement assimilable par le joueur et qu’il ne soit pas trop éloigné afin d’éviter de perdre le joueur dans un monde qu'il ne maîtrise pas. Nous avons ainsi choisi la période des années 60, pleine de rebondissements historiques et d'innovations technologiques, elle correspondait parfaitement à nos critères. Notre but sera donc de créer un jeu RPG basé sur le contexte historique des années 60. Le synopsis détaillé du jeu est disponible à la deuxième page du présent document.
+
+\subsection{Game Design}
+
+Bloodline Heritage plonge le joueur dans une ambiance de mafia sombre des années 1960. Le jeu commence avec Giovanni, un jeune recrue de la mafia, piégé par le FBI lors d'une mission critique. Après avoir survécu, Giovanni cherche vengeance contre les agents responsables en exécutant des missions successives mêlant éliminations et stratégies, tout en accumulant des points pour débloquer des armes. La progression culmine dans un affrontement final contre l'officier du FBI. Une fois l'histoire principale achevée, le mode "Jeu Libre" permet au joueur de continuer à explorer et combattre, consolidant son héritage de mafieux redouté.
+
+
+\newpage
+\section{Informations sur l'Implémentation}
+\subsection{Répartition des Tâches}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Espacement vertical
+    \setlength{\tabcolsep}{8pt} % Espacement horizontal
+    \begin{tabular}{|p{4.5cm}|c|c|c|c|c|}
+        \hline
+        \rowcolor{darkgray} \color{white} \textbf{Tâches} & \color{white} \makecell{\textbf{Ethan} \\ \textbf{Rouimi}} & \color{white} \makecell{\textbf{Gaël} \\ \textbf{Kerninon}} & \color{white} \makecell{\textbf{Armand} \\ \textbf{Meesemaeker}} & \color{white} \makecell{\textbf{Pierre-Antoine} \\ \textbf{Soubrier}} & \color{white} \makecell{\textbf{Amine} \\ \textbf{Sabri}} \\ \hline
+
+
+        Design. Sprites & & S & & & R \\ \hline
+        Design. Décors & R & & S & &  \\ \hline
+        Design. Interface Utilisateur & & R & & & S \\ \hline
+        Prog. Logique Multijoueur & S &  &R & & \\ \hline
+        Prog. Mécaniques & R & & & S & \\ \hline
+        Prog. Personnage & & S & &R & \\ \hline
+        Prog. Décors & R & & & & S \\ \hline
+        Prog. Interface Utilisateur & & & & S & R\\ \hline
+        Prog. IA & & &  & R& S \\ \hline
+        Réseau & S & &R & & \\ \hline
+        Création du Site Web & & S &R & & \\ \hline
+        Animation & & &S & & R\\ \hline
+        Game Design & & R& & & S \\ \hline
+
+    \end{tabular}
+    \caption{Répartition des tâches. R = Responsable ; S = Suppléant}
+    \label{tab:repartition_taches}
+\end{table}
+
+
+\newpage
+
+
+
+\subsection{Outils et Logiciels}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.5} % Espacement vertical
+    \setlength{\tabcolsep}{10pt} % Espacement horizontal
+    \begin{tabular}{|p{3cm}|m{2cm}<{\centering}|p{9cm}|}
+        \hline
+        \rowcolor{darkgray} \color{white} \textbf{Nom} & \color{white} \textbf{Logo} & \color{white} \textbf{Caractéristiques} \\ \hline
+        Git & \includegraphics[width=1.5cm]{Icons/git.png} & 
+        \textit{Git} est l’outil essentiel pour le travail de programmation en équipe. \\ \hline
+        GitHub & \includegraphics[width=1.5cm]{Icons/github.png} & 
+        \textit{GitHub} est une plateforme d’hébergement et de gestion de développement logiciel. \\ \hline
+        Unity & \includegraphics[width=1.5cm]{Icons/unity.png} & 
+        \textit{Unity} sera notre moteur graphique pour notre projet. \\ \hline
+        Rider & \includegraphics[width=1.5cm]{Icons/rider.png} & 
+        \textit{Rider} sera notre environnement de développement pour le langage C\#. \\ \hline
+        Visual Studio Code & \includegraphics[width=1.5cm]{Icons/vsc.png} & 
+        \textit{Visual Studio Code} sera notre environnement de développement pour le site web. \\ \hline
+        Blender & \includegraphics[width=1.5cm]{Icons/blender.png} & 
+        Logiciel open source de 3D. \\ \hline
+        Canva & \includegraphics[width=1.5cm]{Icons/canva.png} & 
+        \textit{Canva} est un outil de design graphique. \\ \hline
+    \end{tabular}
+    \caption{Outils et Logiciels}
+    \label{tab:outils}
+\end{table}
+
+
+
+\subsection{Communication et Réunions}
+
+Nous travaillons de pair avec les outils cités ci-dessus pour assurer une communication fluide et une collaboration efficace au sein de l'équipe. En complément, nous organisons régulièrement des réunions, qu'elles soient en présentiel pour favoriser les échanges directs et dynamiques, ou en visioconférence via des plateformes comme Discord ou Google Meet, afin de faciliter la participation des membres à distance. Ces réunions servent non seulement à faire le point sur l'avancement du projet, mais également à discuter des défis rencontrés, à explorer de nouvelles idées et à planifier les prochaines étapes de manière collective. Par ailleurs, nous utilisons les fonctionnalités de Google Workspace, qui offre une suite d'outils collaboratifs performante. Cela inclut l'utilisation de Google Docs pour la rédaction et le partage de documents, Google Sheets pour le suivi des données et la création de tableaux, et Google Slides pour concevoir des présentations visuelles et structurer nos idées de manière claire. Ces outils permettent une interaction en temps réel, garantissant que chaque membre puisse contribuer de manière active et significative, quel que soit son emplacement et sa plateforme.
+
+\part{Rapports Hebdomadaires}
+\chapter{Rapports Hebdomadaires}
+
+
+\section{Semaine du 21 octobre 2024}
+
+\subsection*{Création du Site Web (Ethan, Gaël)}
+Ethan a conçu un modèle de site web en utilisant le framework de développement front-end Svelte, qu'il avait configuré pour intégrer Tailwind CSS, une bibliothèque CSS open source basée sur des utilitaires. Pour gérer les différents modules nécessaires à ce projet, Ethan a opté pour le gestionnaire de paquets NPM. L'objectif initial était de former les membres de l'équipe aux bases du développement avec Svelte et à des technologies couramment utilisées en production, telles que Tailwind CSS. Cependant, en raison des exigences de compétences élevées et du temps limité prévu pour le développement selon le cahier des charges, l'équipe a dû renoncer à cette initiative afin de proposer un résultat alternatif dans les meilleurs délais. Nous avons alors décidé de privilégier une approche plus accessible pour la majorité des membres de l'équipe.
+\\[0.4cm]
+Après de longues réflexions et discussions tout au long de la semaine sur la meilleure façon de concevoir le site web, nous avons finalement opté pour une solution plus simple et pragmatique. Initialement, nous avions envisagé d’utiliser des technologies plus complexes, avec des langages et des bibliothèques moins courants, dans le but de créer un site riche en fonctionnalités. Toutefois, en prenant du recul, nous avons réalisé que cette complexité n'était pas nécessaire. Le site avait pour vocation principale de rediriger les utilisateurs vers les éléments essentiels du projet (téléchargements, rapport, cahier des charges, etc.), et quelques pages simples suffisaient largement à remplir cet objectif. Nous avons donc décidé d’abandonner l'implémentation basée sur Svelte et Tailwind CSS pour adopter une approche plus directe en utilisant HTML, CSS et JavaScript. Cette solution, légère et rapide à mettre en œuvre, garantit une compatibilité et une accessibilité optimales. De plus, elle permet de mobiliser efficacement tous les membres de l’équipe, y compris ceux ne disposant pas de compétences préalables en développement web. Cette simplicité favorise des contributions rapides et des ajustements aisés, ce qui constitue un atout majeur pour faire évoluer le site tout au long du projet.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Gestion de Projet (Ethan)}
+Ethan, afin de préparer les différents répertoires à créer pour notre projet, a d'abord mis en place une organisation claire sur GitHub sous le nom de « Bloodline-Heritage ». Il a ensuite invité chaque membre de l'équipe à rejoindre le projet. Au cours de cette semaine, nous avons pris le temps de nous organiser efficacement. Nous avons réparti les différentes tâches en tenant compte des compétences et des expériences passées de chaque membre de l'équipe dans le domaine de la programmation. Cela nous a permis de maximiser l'efficacité de chacun, en assignant des responsabilités correspondant aux domaines dans lesquels nous étions les plus expérimentés. Cette approche collaborative a facilité une bonne répartition du travail et une meilleure gestion des priorités pour avancer rapidement sur le projet.
+\\[0.4cm]
+Cette semaine, après avoir effectué des recherches approfondies et comparé les deux moteurs de jeu Godot et Unity, nous avons pris la décision d'opter pour Unity. Bien que Godot présente certains avantages, comme sa légèreté et sa nature open-source, nous avons jugé que Unity offrirait une plus grande souplesse pour le développement de notre projet, notamment grâce à l'abondance de ressources disponibles sur Internet. Unity bénéficie d'une communauté immense, avec une multitude de tutoriels, de forums, de plugins et de solutions déjà développées, ce qui facilite grandement le processus d'apprentissage et de résolution de problèmes. La documentation exhaustive d'Unity nous permet de trouver rapidement des réponses et de mettre en œuvre des fonctionnalités spécifiques sans partir de zéro. De plus, l'énorme écosystème d'assets et de packages compatibles avec Unity offre une flexibilité précieuse pour accélérer le développement et se concentrer davantage sur les aspects créatifs et techniques du jeu.
+
+\subsection*{Programmation des Mécaniques (Pierre-Antoine, Ethan, Amine)}
+Cette semaine a marqué une étape clé dans notre apprentissage du moteur Unity. Chacun d'entre nous – Ethan, Pierre-Antoine et Amine – a progressé dans la maîtrise de l'interface de programmation Unity, chacun selon son approche. Pierre-Antoine a développé un jeu simple en 2D, mettant en pratique ses nouvelles compétences. Ethan s'est plongé dans une vaste quantité de documentation pour approfondir ses connaissances, tandis qu'Amine a suivi plusieurs tutoriels pour programmer un jeu à son tour. 
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Au cours de cette première semaine, Amine a consacré son temps à la recherche et à la compréhension des principes fondamentaux des interfaces utilisateur dans Unity. Cette phase d'apprentissage s'est articulée autour de l'exploration des outils essentiels tels que les Canvas, les boutons et \texttt{TextMeshPro}, utilisés pour créer des menus interactifs. Il a également étudié plusieurs tutoriels visant à approfondir ses connaissances sur la structuration d'un menu principal, incluant des fenêtres pop-up et des boutons fonctionnels. Aucun travail d'implémentation pratique n'a été réalisé durant cette période, car l'objectif principal était d'acquérir des connaissances théoriques solides et de planifier les étapes suivantes avec soin, le design de l'interface utilisateur sera réalisé par Gaël et Amine d'ici les prochains jours.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Gestion de Projet (Ethan) : Créer un environnement de travail collaboratif sur GitHub
+    \item Animations (Armand, Amine) : Commencer à programmer les mouvements basique du jeu
+    \item Site Web (Gaël) : Commencer le squelette HTML du site web.
+    \item Design UI (Gaël, Amine) : Réaliser des croquis des bases de l'Interface Utilisateur.
+\end{itemize}
+
+\newpage
+\section{Semaine du 04 novembre 2024}
+
+\subsection*{Création du Site Web (Gaël)}
+Le squelette du site web a été lancé cette semaine avec plusieurs éléments clés intégrés. Tout d’abord, une page 404 a été ajoutée, garantissant ainsi une expérience utilisateur cohérente en cas d’erreur de navigation. De plus, les fichiers annexes nécessaires au bon fonctionnement du site, tels que les images, les icônes, ainsi que les fichiers de style (CSS) et de script (JavaScript), ont été correctement organisés et ajoutés au projet. Toutefois, le style CSS reste encore très basique et n’a pas encore été optimisé. Il est donc prévu de consacrer davantage de temps au design et à l’apparence du site la semaine prochaine, en apportant les ajustements nécessaires pour améliorer l’aspect visuel, l’ergonomie et l’harmonisation des couleurs et des éléments graphiques. Cette étape permettra de rendre le site plus attrayant et fonctionnel pour les utilisateurs. Pour le moment, nous nous sommes limités à un développement web rapide afin de poser les bases du projet.
+
+
+\subsection*{Programmation des Mécaniques (Ethan, Pierre-Antoine, Armand, Amine)}
+Cette semaine a marqué une avancée stratégique majeure dans l’organisation du projet, posant des bases solides pour un développement harmonieux et structuré à long terme. Bien qu’elle ait été moins intense en termes de production de code, elle a permis à toute l’équipe de mettre en place une organisation GitHub structurée, spécialement conçue pour optimiser le travail collaboratif. Cette organisation centralise désormais efficacement le code source, les assets graphiques et sonores, ainsi que la documentation technique et fonctionnelle. En parallèle, un système de suivi des tâches a été intégré, attribuant clairement les responsabilités à chaque membre tout en offrant une vue d’ensemble des progrès et des objectifs restants. Cette nouvelle approche a également instauré des bonnes pratiques de collaboration, garantissant des contributions sans conflit et une traçabilité optimale. Ainsi, cette semaine a été consacrée à préparer un cadre organisationnel robuste, essentiel pour soutenir la réussite future du développement du jeu.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Gestion de Projet : (Ethan, Armand) : Commencer un environnement de travail collaboratif sur GitHub.
+    \item Prog. des Mécaniques : (Pierre-Antoine, Ethan) : Commencer à implémenter les mouvement basiques du personnage.
+    \item Site Web (Gaël) : Avancer sur le site web.
+    \item Prog. UI (Amine) : Avancer sur l'interface dans Unity.
+\end{itemize}
+
+
+
+
+\newpage
+\section{Semaine du 11 novembre 2024}
+
+\subsection*{Création du Site Web (Gaël)}
+Gaël KERNINON a partagé avec le groupe une version de base du site web, proposant une structure HTML soignée et moderne, incluant des sections telles que le header, la navigation, le contenu principal (main) et le footer. Le design se distingue par l'utilisation de couleurs sobres, principalement le noir et le rouge, en parfaite adéquation avec l'univers mafieux qui domine l'imaginaire collectif. Le style visuel de la page s'inspire fortement de celui des articles de presse en ligne, notamment les sites du journal Le Figaro et de BFM, ainsi que du site satirique Le Gorafi, les couleurs bleues de ces derniers ayant été remplacées par du noir pour correspondre à l'ambiance souhaitée. Ces sites ont servi de référence pour leur design à la fois professionnel et facilement implémentable. Actuellement, la page se compose de boutons fictifs, c'est-à-dire qu'ils ne mènent encore nulle part. Cette approche permet d'intégrer facilement des liens externes vers les documents clés du projet sans nécessiter de modifications majeures du contenu ou du design. Parmi ces boutons fictifs, certains sont particulièrement visibles, comme le bouton "Play on PC", inspiré de celui du site officiel du jeu vidéo War Thunder développé par Gaijin Entertainment. Ce bouton, rouge et rectangulaire, a été conçu pour être immédiatement visible dès l'ouverture de la page, sans qu’il soit nécessaire de le chercher, et comporte également le logo Windows, assurant ainsi la compatibilité avec le système d’exploitation. D’autres boutons placés en haut de la page redirigent vers des sections importantes telles que celles consacrées à l’entreprise, à l’équipe, aux logiciels, à la bibliothèque, ainsi qu’aux documents clés du projet, tels que le cahier des charges ou ce rapport. Cette structure claire et bien pensée permettra une navigation fluide et efficace sur le site. 
+À partir de maintenant, Gaël cède la responsabilité du développement du site web à Armand, responsable de la création du site, qui prendra en charge la suite du travail. Cependant, Gaël restera disponible pour assurer la maintenance et fournir de l'aide sur le site web si nécessaire.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/oldWeb.png}
+    \caption{Première Version du Site Web}
+    \label{fig:enter-label-6}
+\end{figure}
+
+\subsection*{Programmation du Personnage (Pierre-Antoine, Gaël)}
+Fort de nouvelles bases structurelles et administratives solides, nous avons décidé de débuter la programmation des premiers mouvements de notre personnage. Cette étape fondamentale nous a permis de poser les bases du contrôle du personnage dans l'environnement du jeu. Nous avons donc commencé par concevoir des mouvements simples, sans animation, afin de nous concentrer principalement sur la fonctionnalité de base. Les déplacements avant et arrière ont été programmés, permettant au personnage de se déplacer sur le plan horizontal. Nous avons ensuite ajouté un mouvement de saut, élément essentiel pour tester les interactions du personnage avec l'environnement vertical, tout en nous assurant de la réactivité et de la fluidité du contrôle.
+
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Design de l'Interface Utilisateur (Amine, Gaël)}
+Cette semaine a été consacrée à la conception de l’interface utilisateur, tant sur papier que dans Unity, sans implémentation fonctionnelle. Gaël et Amine ont élaboré un prototype détaillé du menu principal intégrant plusieurs éléments clés. Celui-ci comprend des boutons permettant d’ouvrir des fenêtres pop-up, chacune équipée d’une croix positionnée en haut à droite pour en permettre la fermeture. Le prototype inclut également un bouton dédié à la fermeture du jeu, ainsi qu’un autre bouton permettant de naviguer vers la carte du jeu. Par ailleurs, une réflexion approfondie a été menée sur la disposition et l’organisation des différents éléments, dans le but de concevoir une interface claire, ergonomique et intuitive. Cette phase de conception préliminaire constitue une étape essentielle dans la préparation d’une interface utilisateur fonctionnelle et adaptée. Cette interface sera présentée à l'équipe dès la prochaine réunion.
+\\[0.4cm]
+Au cours de cette semaine, Amine a également créé un Canvas basique dans Unity, comprenant des placeholders destinés aux différents éléments de l’interface utilisateur. Bien que les boutons et fenêtres aient été visibles, ils n’étaient pas encore fonctionnels. Il a également commencé à configurer les paramètres de mise à l’échelle pour garantir que l’interface s’adapte correctement à différentes résolutions d’écran. Cependant, des difficultés techniques liées à l’affichage des fenêtres sur des écrans de petite taille ont freiné son avancée. Cette période de travail s’est principalement concentrée sur l’ajustement visuel et la préparation des bases pour une interface utilisateur adaptable et cohérente. Amine a continué à travailler sur l’organisation des éléments dans Unity, tout en effectuant des tests de compatibilité avec différentes résolutions d’écran. Il a pu également étudier comment ajouter des fonctionnalités aux boutons et gérer les événements utilisateur via des scripts C\#. Cependant les fonctionnalités principales ne sont pas encores implémentées.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Design UI (Gaël) : Préparer une présentation orale avec diaporama pour suggérer une UI.
+    \item Site Web (Armand) : Commencer à ajouter les éléments du projet au site.
+    \item Programmation du Personnage (Ethan, Amine) : Faire les premiers testes, ainsi que commencer la gestion de la caméra.
+    \item Prog. UI (Amine) : Se documenter pour la gestion des fenêtres.
+\end{itemize}
+
+
+
+
+
+\newpage
+\section{Semaine du 18 novembre 2024}
+
+\subsection*{Design de l'Interface Utilisateur (Gaël)}
+Gaël KERNINON a élaboré un diaporama détaillé ce lundi 18 novembre pour présenter, lors d'une réunion d'équipe en présentiel, le travail accompli sur le design de l'interface du menu du jeu. Cette présentation a marqué un moment clé dans notre projet, permettant à chacun d’apprécier l’évolution de cette composante essentielle.
+\\[0.4cm]
+L’interface du menu s’inspire d’un petit jeu vidéo développé par Bippinbits sur Windows et MacOS en 2022, Dome Keeper. Ce choix s'est imposé naturellement en raison de la simplicité et de l'efficacité de cette interface. En effet, Dome Keeper regroupe toutes les informations essentielles dans une présentation épurée et accessible, ce qui est parfaitement adapté à un jeu comme Bloodline Heritage. L'interface de Dome Keeper a également l'avantage d'utiliser un nombre réduit de boutons visibles, rendant les interactions intuitives : un seul clic suffit pour accéder au jeu, aux paramètres ou à des liens externes vers des informations juridiques ou techniques. De plus, la possibilité d’ajouter une image de fond enrichit l’expérience utilisateur en l’immergeant dès l’écran d’accueil dans l’univers du jeu. Pour concevoir l’interface du menu de Bloodline Heritage, Gaël, en tant que responsable de l’expérience utilisateur, a d’abord réalisé un croquis inspiré directement de l’interface de Dome Keeper. Ce premier jet était à la fois une base solide et une invitation à la créativité. Afin de personnaliser davantage l’interface et de l’adapter à notre jeu, plusieurs modifications ont été apportées : certains éléments ont été déplacés pour améliorer l’ergonomie, les boutons ont été repensés pour être plus accessibles et visuellement attractifs, et le logo de Bloodline Heritage a été ajouté pour renforcer l’identité visuelle du projet.
+\\[0.4cm]
+Une fois le croquis finalisé et mis en forme à l’aide d’un montage photo, nous avons organisé une séance de brainstorming en équipe. Cette étape a permis d’enrichir le design grâce à des retours constructifs, où chaque membre a pu exprimer ses idées et ses ressentis. Nous avons, par exemple, décidé d’ajouter des boutons interactifs, dont l’apparence varie selon les actions de l’utilisateur (clic, survol de la souris, inactivité). Ce choix s’inscrit dans notre volonté de rendre l’expérience utilisateur plus engageante. Par ailleurs, une bande noire en haut de la page, conçue pour améliorer le contraste et la lisibilité, pourrait être masquée automatiquement lors du lancement du jeu ou après une période prolongée d’inactivité. Enfin, le centrage des boutons a été retenu comme une priorité pour garantir un aspect visuel harmonieux et professionnel. Ce processus de création, ponctué d'échanges et d'améliorations successives, a été à la fois exigeant et gratifiant. Il reflète notre engagement à offrir une interface à la fois fonctionnelle et esthétique, capable de plonger les utilisateurs dans l'univers unique de Bloodline Heritage dès les premiers instants.
+
+
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Amine a débuté cette semaine l’écriture de scripts simples afin de gérer les interactions de base dans Unity. Il a notamment développé un premier script permettant d’ouvrir et de fermer des fenêtres en utilisant la méthode \texttt{SetActive()}, testant ainsi l’activation et la désactivation des éléments. Par ailleurs, il a exploré la méthode \texttt{Application.Quit()} pour implémenter la fonctionnalité de fermeture du jeu, en vérifiant son comportement lors de l'exécution en mode build. Ces premiers tests ont permis de confirmer que les bases du système fonctionnent, bien que l’ensemble reste encore à un stade très minimal, nécessitant des ajustements et des ajouts pour atteindre une fonctionnalité complète.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Réseau (Ethan)}
+Pour implémenter le réseau et portant le mode multijoueur dans notre jeu, plusieurs options de packages sont disponibles. Parmi les solutions populaires, on trouve Mirror, qui est une bibliothèque bien établie pour la création de jeux multijoueurs, ainsi que Unity Multiplayer, qui propose une approche plus intégrée avec le moteur Unity. Cependant, après avoir étudié les différents avantages et inconvénients de chaque option, nous avons choisi d'utiliser Photon pour la gestion du multijoueur. Photon est un service très apprécié pour sa scalabilité et sa facilité d'intégration avec Unity. Il offre des fonctionnalités robustes, telles que le matchmaking, la synchronisation des joueurs et une faible latence, tout en permettant une gestion fluide des rooms et des joueurs. Son système de cloud nous permettra également de nous concentrer davantage sur le développement du gameplay, sans avoir à gérer l'infrastructure réseau. Grâce à sa grande documentation et à sa communauté active, Photon représente la solution idéale pour répondre à nos besoins de réseau dans ce projet.
+
+\subsection*{Création du Site Web (Armand)}
+Après avoir consulté les fonctionnalités de la version existante du site web, Armand a pris la décision de créer un site plus moderne et épuré, répondant mieux aux besoins actuels. Pour donner un aperçu de cette nouvelle vision, il a conçu une page d'accueil comportant plusieurs éléments interactifs. Cette page index inclut une vidéo mettant en avant le logo de Bloodline Heritage, symbolisant l'image du projet, ainsi qu'un bouton de téléchargement. En complément, deux images ont été intégrées pour enrichir la présentation visuelle. Cependant, en attendant la réception des images définitives du jeu, Armand a choisi d'utiliser temporairement les logos de l'entreprise comme substituts. Souhaitant travailler de manière collaborative et recueillir des retours constructifs, il a développé cette nouvelle version sur une nouvelle branche GitHub. Cette démarche lui permettra de partager facilement ses modifications avec ses collègues et de bénéficier de leurs avis avant de finaliser le site.
+
+\subsection*{Programmation du Personnage (Pierre-Antoine, Gaël)}
+
+Après avoir posé les bases des premiers mouvements, nous avons décidé de nous intéresser à la gestion de la caméra. Au début de la semaine, nous ne disposions que d'une caméra fixe. Nous avons donc entrepris de programmer un script permettant à la caméra de suivre le joueur en calculant la distance et les angles. Cependant, malgré nos efforts, cette solution basique n’offrait pas un suivi optimal du joueur sous tous les angles.
+
+Conscients des limites de notre approche, nous avons commencé à explorer des bibliothèques externes capables d’automatiser et d’améliorer le comportement de la caméra. Après avoir examiné plusieurs options, nous avons retenu trois bibliothèques principales : Invector, Cinemachine et Unity Standard Camera Controller. Parmi celles-ci, Invector a particulièrement attiré notre attention. Cette bibliothèque est non seulement réputée pour sa fiabilité, mais elle est aussi facile à utiliser et bien adaptée aux besoins spécifiques de notre projet.
+
+Nous avons donc consacré du temps à nous documenter sur Invector, afin de préparer son intégration et pouvoir débuter l’implémentation des mouvements et du suivi de caméra avec cette bibliothèque dès la semaine suivante. Cette étape marquait un tournant dans notre approche, car elle permettait d’aborder la gestion de la caméra avec des outils plus robustes et adaptés aux exigences du jeu.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Design UI (Gaël) : Prendre en considération les améliorations suggérées pour le design du menu.
+    \item Site Web (Armand) : Ajouter de nouvelles pages au site.
+    \item Programmation du personnage (Pierre-Antoine, Gaël) : Commencer à implémenter la librairie Invector dans le code.
+\end{itemize}
+
+\newpage
+\section{Semaine du 25 novembre 2024}
+
+\subsection*{Design de l'Interface Utilisateur (Gaël)}
+Présentation de la nouvelle interface du menu à l'équipe en prenant en considération les améliorations suivantes : premièrement, le style du menu, avec l'ajout d'une image de fond et des boutons interactifs centrés, dans un second temps, les modifications mineures de la barre noire et de l'affichage purifié des logos et du numéro de version, et enfin le choix des couleurs, sombre, proche du noir et blanc afin de rappeler les couleurs communément associées à l'univers mafieux dans le monde occidental, en prenant pour état de l'art des sources externes du monde cinématographique américain. Suite à cette réunion, le design de l'interface du menu est considéré comme abouti et sera fourni au rapport du design de l'interface utilisateur de l'équipe. La prochaine étape du design à réaliser sera celle de l'écran de chargement, intervenant avant le menu dans le lancement du jeu.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/design.png}
+    \caption{Design du Menu}
+    \label{fig:enter-label-1}
+\end{figure}
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Cette semaine, Amine a intégré un bouton permettant de naviguer vers la carte du jeu. En utilisant la méthode \texttt{SceneManager.LoadScene()}, il a créé un script destiné à charger une nouvelle scène lorsque le joueur clique sur le bouton \texttt{"Jouer"}. De plus, il a mis en place une structure de base pour gérer le retour au menu principal, facilitant ainsi la navigation entre les différentes scènes du jeu. Cependant, aucun test approfondi n’a encore été réalisé à ce stade, et des modifications seront nécessaires pour garantir la stabilité de ces interactions.
+
+\subsection*{Programmation des Décors (Ethan)}
+Après avoir choisi la plateforme sur laquelle nous allions travailler, Ethan, en tant que responsable des décors du jeu, a effectué des recherches sur les assets disponibles dans Unity. Il a étudié différentes versions du moteur, et a découvert que la version la plus récente, Unity 6, apportait un changement majeur concernant le rendu des matériaux et des textures. En effet, cette mise à jour obligeait à migrer manuellement les anciens assets du web vers le nouveau système de rendu. Ayant pris connaissance de ce changement, Ethan a opté pour \texttt{Unity 2022.3 LTS}, dont les tutoriels restaient pertinents et facilement applicables, ce qui nous a permis de démarrer le projet sans rencontrer de problèmes majeurs.
+
+\newpage % mise en forme de fin de rapport (Gaël)s
+
+\subsection*{Programmation du Personnage (Pierre-Antoine, Gaël)}
+Tout au long de cette semaine, nous nous sommes immergés dans l’apprentissage de la bibliothèque Invector. Nous avons rapidement constaté son efficacité, ainsi que la simplicité de son utilisation, ce qui nous a permis de progresser rapidement. En l’espace d’une semaine, nous avons réussi à implémenter la majorité des mouvements de base, tout en ajoutant des fonctionnalités supplémentaires, telles que la possibilité de se mettre en position accroupie.
+\\[0.4cm]
+De plus, à travers de nombreux tutoriels et ressources en ligne, nous avons pu découvrir l’étendue des fonctionnalités offertes par Invector, ce qui nous a permis d’élargir notre compréhension de la bibliothèque et de ses possibilités. Nous avons ainsi exploré des aspects avancés et des ajustements possibles pour optimiser les interactions avec le joueur.
+\\[0.4cm]
+Cependant, un problème est survenu au fur et à mesure de notre utilisation : de nombreuses fonctionnalités d’Invector étaient limitées dans la version gratuite. Cela nous a contraints à faire des compromis sur certaines fonctionnalités avancées que nous aurions souhaité exploiter pleinement. Néanmoins, cette expérience nous a permis d’acquérir une bonne maîtrise des outils de base.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Design UI (Gaël) : Proposer un premier design de l'écran de chargement.
+    \item Prog. Décors (Ethan) : Créer projet sur Unity.
+    \item Game Design (Gaël) : Proposer à l'équipe une version formelle du Game Design.
+    \item Création du Site Web (Armand) : Ajouter des pages d'information sur le site web.
+    \item Prog. UI (Amine) : Finir les boutons interactifs.
+\end{itemize}
+
+
+
+
+
+\newpage
+\section{Semaine du 02 décembre 2024}
+\subsection*{Design de l'Interface Utilisateur (Gaël)}
+Proposition d'un design pour un écran de chargement simple, conformément à ce qui avait été suggéré la semaine précédente. L'écran de chargement affiche tout d'abord le logo de l'entreprise Sudoers Studio pendant environ deux secondes. Ensuite, ce logo disparaît pour laisser place au logo du jeu, Bloodline Heritage, qui reste visible pendant toute la durée restante du chargement. Ce design, volontairement minimaliste, s'inspire de l'écran de chargement de la grande majorité des jeux vidéo, tels que ceux développés par Electronic Arts, par exemple. L'écran de chargement n'a pas de but particulier, si ce n'est d'informer les joueurs sur les auteurs du jeu. Chaque logo est affiché en blanc sur un fond noir, afin de garantir une harmonie visuelle avec le menu qui suivra et d'offrir un rendu sobre et classique. Une piste d'amélioration envisagée serait d'ajouter une barre de progression, à condition que son implémentation s'avère simple. Cette barre, de forme rectangulaire et blanche, se remplirait de gauche à droite au fur et à mesure du chargement. Toutefois, son implémentation n'est ni urgente, ni prioritaire : cette idée est simplement évoquée ici et pourra être explorée ultérieurement si nécessaire. Le design de l'écran de chargement est actuellement considéré comme abouti.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Cette semaine, Amine a finalisé les scripts pour les boutons interactifs et a testé l’ouverture et la fermeture des fenêtres via des boutons dotés de croix pour les fermer. Le système fonctionne globalement de manière satisfaisante, bien que quelques bugs mineurs subsistent, tels que des fenêtres qui ne se désactivent pas toujours correctement après un clic rapide. Par ailleurs, il a ajouté un bouton \texttt{"Crédits"} permettant d’afficher une fenêtre contenant un lien vers le site web de l’équipe, en utilisant la méthode \texttt{Application.OpenURL()}. Ces améliorations ont permis d’affiner l’interaction de l’interface, mais un travail supplémentaire sera nécessaire pour corriger les bugs restants et optimiser le comportement des fenêtres.
+
+\subsection*{Game Design (Gaël)}
+À la suite d'une réunion préliminaire, organisée avant la rédaction du cahier des charges, notre équipe a posé les bases d'une histoire de jeu, en se concentrant sur le thème intrigant et captivant de la mafia. À partir de ces discussions, Gaël a repris les notes prises pour transformer cette idée initiale en un script réaliste, concret et prêt à être implémenté dans le cadre du projet. 
+La rédaction de la mission d'introduction a été réalisée de manière exhaustive, en incluant tous les détails nécessaires à son implémentation future. Cela comprend les dialogues, qu'ils soient écrits ou prévus pour un format oral, ainsi que des indications stylistiques précises, telles que les nuances de couleurs et l'atmosphère générale à recréer. En parallèle, le game design de la première mission a été élaboré avec soin, en prenant en compte les suggestions proposées par les membres de l'équipe, et documenté avec rigueur dans \LaTeX pour garantir une présentation claire et professionnelle. Une fois cette première étape achevée, un résumé a été préparé et partagé avec l'ensemble du groupe en vue de son approbation lors d'une réunion en visioconférence. Grâce à cette validation collective, le travail peut désormais avancer : la suite du projet sera rédigée et finalisée pour la semaine du 16 décembre, conformément au calendrier établi.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+\subsection*{Création du Site Web (Armand)}
+Après avoir créé une branche et une page index, Armand a décidé d'ajouter plusieurs pages supplémentaires, telles que \texttt{Information}, \texttt{Jeu}, etc., et s'est concentré sur la mise en place du style et de la structure de ces pages. Il a également conçu une page d'erreur 404, permettant aux utilisateurs d'être automatiquement redirigés vers la page principale en cas d'erreur.
+Sur la page index, Armand a intégré une barre d'icônes regroupant l'accès à toutes les pages. De plus, sur la page \texttt{Information}, il a organisé le contenu en trois catégories distinctes : le règlement, les mises à jour (\texttt{patchs}) et le cahier des charges.
+La page \texttt{Jeu} introduit les utilisateurs à l'histoire du jeu, accompagnée de quelques images et vidéos, bien que ces dernières ne soient pas encore disponibles pour le moment. Enfin, sur la dernière page, intitulée \texttt{L'équipe}, Armand présente les membres de l'équipe de développement ayant participé au projet Bloodline Heritage. Grâce à une belle animation et une mise en page soignée, les utilisateurs peuvent découvrir les créateurs du jeu, ainsi que les motivations de chaque membre de l'équipe Sudoers à contribuer à ce projet collaboratif.
+
+
+\subsection*{Gestion de Projet (Ethan)}
+Après avoir effectué quelques recherches de base, réalisées par les différents membres de l'équipe, nous avons décidé de créer un projet sur Unity. Une fois le projet initialement configuré, nous avons pu exploiter les outils et les fonctionnalités offerts par Unity pour commencer à construire notre jeu. Cette étape a impliqué la mise en place de la structure du projet et l'intégration des éléments de base. En parallèle, nous avons pris soin de configurer l'environnement de travail, en assurant la synchronisation avec GitHub afin d'avoir une gestion centralisée du code source et des ressources. Cette approche nous permettra non seulement de mieux collaborer, mais aussi d'optimiser le flux de travail et de garantir une gestion efficace des différentes versions du projet tout au long de son développement.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Design UI (Gaël) : Design de l'interface de jeu 3D.
+    \item Design UI (Gaël) : Design de l'arbre des compétences.
+    \item Game Design (Gaël) : Chapitre 2, Chapitre 3 et Fin du jeu
+    \item Prog. Décors (Ethan) : Bases des décors.
+    \item Prog. Mécaniques (Armand, Pierre-Antoine) : Intégrer ue caméra en troisième personne.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 09 décembre 2024}
+
+\subsection*{Design de l'Interface Utilisateur (Gaël)}
+Proposition d'un design pour l'interface principale du jeu :
+Le personnage est visible à la troisième personne, avec la caméra à la hauteur de la tête, voire légèrement au-dessus. L'interface présente une barre de vie en bas à gauche, de forme rectangulaire. La vie est représentée par une partie rouge de la barre noire : elle est totalement rouge lorsqu'elle est complète et noire lorsqu'elle est vide. Au-dessus de la barre de vie se trouve une étoile jaune, accompagnée d'un compteur indiquant le nombre de points accumulés par le joueur, lesquels serviront à acheter des éléments dans l'arbre des compétences. En bas à droite se trouve une mini-carte, de forme ronde, qui sera implémentée si les restrictions de temps le permettent, par les responsables et suppléants de la programmation de l'expérience utilisateur. Lors des discussions autour du design de cette interface, il a été débattu que la mini-carte serait plus petite que prévu, pour finalement être plus petite que la barre de vie. Le design de cette interface peut désormais être implémenté par les personnes en charge de son développement.
+\\[0.4cm]
+D'autre part, cette semaine, nous avons choisi un design pour l'arbre des compétences. Nous avons hésité plusieurs heures avant de nous mettre d'accord sur un design approuvé par tous. Les designs candidats étaient inspirés de jeux vidéo tels que  \textit{Jedi: Fallen Order}, \textit{Assassin's Creed} ou \textit{Heart of Iron IV}, qui possédaient des arbres de compétences grandissant respectivement vers le haut, vers le bas et vers la droite au fur et à mesure de la progression. Nous avons rapidement éliminé le dernier, qui nous semblait peu adapté car peu réaliste. Nous hésitions donc entre un arbre se dirigeant vers le haut ou vers le bas. Nos arguments respectifs étaient qu’un arbre orienté vers le haut pouvait être plus facilement assimilé à un arbre réel, symbolisant une montée en niveau. D’un autre côté, un arbre orienté vers le bas donnait une impression de lecture chronologique, comme une page de livre que l’on lit de haut en bas, et se rapprochait davantage du modèle d’un arbre binaire, ce qui en faciliterait l'implémentation. Nous avons finalement opté pour la première option, qui permet de visualiser l’arbre des compétences comme un arbre réel poussant vers le haut. Toutefois, nous gardons à l'esprit l’idée d’une implémentation avec un arbre binaire pour une future évolution. L’arbre des compétences sera donc inspiré de celui du jeu \textit{Jedi: Fallen Order}, sorti en 2019. Le design de ce dernier est considéré comme abouti et peut désormais être implémenté.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Cette semaine, Amine a présenté l’interface utilisateur au groupe. L’ensemble du menu principal, comprenant les boutons, les fenêtres, la fonctionnalité de fermeture avec croix, la navigation vers la carte du jeu, ainsi que la fonctionnalité de fermeture du jeu, a été validé. Les membres de l’équipe ont exprimé leur satisfaction quant à la simplicité et la clarté de l’interface. Toutefois, quelques retours ont été formulés, notamment la suggestion d’ajouter un message de confirmation avant de quitter le jeu. Bien que cette fonctionnalité ait été proposée, elle n’a pas été implémentée immédiatement, car d’autres priorités ont été jugées plus urgentes à ce stade du développement.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Game Design (Armand)}
+Après avoir échangé avec l’équipe, Armand a proposé et écrit des modifications importantes sur l’histoire de Bloodline Heritage. Ces ajustements visent à rendre le récit plus clair et captivant, en renforçant l’immersion du joueur dans l’univers impitoyable de la mafia. Dans cette nouvelle version, l’action se déroule dans la ville fictive de Ravenwood. Le personnage principal, Giovanni, un Italien membre d’une puissante famille mafieuse, reçoit pour mission de livrer un colis à un mystérieux client. Cependant, l’opération tourne mal lorsque le FBI intercepte le colis et élimine brutalement toute la famille mafieuse, y compris Don Fanucci, le parrain de l’organisation et père de Giovanni. Dévasté par la perte de sa famille et consumé par un désir de vengeance, Giovanni décide de traquer et d’éliminer chaque membre de l’escouade du FBI responsable, remontant jusqu’à leur chef. Pour faire face à des ennemis coriaces, le joueur dispose de la possibilité d’augmenter la force de Giovanni et de débloquer des objets grâce à un arbre de compétences. Ces mécaniques permettent de rendre le gameplay plus stratégique et immersif, tout en renforçant la progression du joueur au fil de l’histoire, c'est la raison pour laquelle notre équipe s'est mise d'accord sur ces modifications, qu'Armand a pu nous soumettre, et qui seront ajoutées par Gaël à la dernière version du rapport de Game Design.
+
+\subsection*{Programmation des Décors et des Mécaniques (Armand, Pierre-Antoine, Armand)}
+Armand, Pierre-Antoine et Ethan ont travaillé ensemble pour concevoir la première scène du jeu, dans laquelle nous avons intégré un personnage animé ainsi qu'une caméra en troisième personne. Pour réaliser cela, nous avons utilisé le package Invector, qui nous a permis d'ajouter des animations fluides au personnage et de configurer la caméra de manière optimale pour une vue immersive. Cette première scène a servi de base pour tester les premières fonctionnalités du jeu, tout en créant un environnement interactif dans lequel nous avons pu explorer et affiner notre gameplay.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Game Design (Gaël) : Commencer à formaliser le scénario et ses modalités d'implémentation.
+    \item Création du Site Web (Armand) : Faire la page d'installation du jeu.
+    \item Multijoueur (Ethan) : Bases et Assets.
+    \item Prog. UI (Amine) : Avancer sur les fonctionalités des fenêtres et boutons.
+\end{itemize}
+
+
+
+
+
+
+\newpage
+\section{Semaine du 16 décembre 2024}
+
+\subsection*{Game Design (Gaël)}
+Après avoir obtenu l'approbation du groupe pour le Game Design concernant la mission d'introduction ainsi que la première mission du jeu, Gaël a entrepris de finaliser les règles et les différents éléments constitutifs du gameplay. Dans la continuité de ce travail, les scénarios des deuxième et troisième missions ont été rédigés en détail, accompagnés de leurs critères spécifiques d'implémentation, garantissant leur intégration cohérente dans le jeu. Par ailleurs, les modalités du mode "Jeu Libre", qui prend le relais des missions et marque la conclusion du mode histoire, ont été précisément formalisées pour assurer une mise en œuvre fluide dans le contexte narratif global. Bien que la rédaction du scénario soit considérée comme aboutie, elle demeure susceptible de modifications afin de répondre aux besoins spécifiques qui pourraient émerger lors de la phase d'implémentation, qu'il s'agisse de contraintes techniques, de délais ou d'autres ajustements nécessaires à la réalisation du projet.
+
+\subsection*{Création du Site Web (Armand)}
+Après avoir terminé les autres pages, Armand se concentre maintenant sur la dernière, la page \texttt{installer}. Cette page expliquera que le jeu est disponible seulement sur le système d'exploitation Windows, comme mentionné dans le cahier des charges, et permettra d’installer le jeu directement en cliquant sur le bouton télécharger. En attendant le développement complet du jeu, Armand a mis en place un fichier ISS (Inno Setup Script) qui est un outil permettant d’installer des programmes sur Windows. Il a créé ce script grâce à Inno Setup, un outil utilisé pour packager des logiciels et les distribuer sous forme de fichiers exécutables (\texttt{.exe}) qui permettent une installation plus facile. Il a de plus corrigé les couleurs et ajouté du texte sur toutes les pages du site web offrant des informations plus complètes à l’utilisateur. Néanmoins, il reste encore à mettre des extraits du jeu vidéo, cependant, cette tâche sera mise en attente jusqu’à la fin du développement. 
+
+\subsection*{Programmation des Mécaniques (Pierre-Antoine)}
+
+Cette semaine a été marquée par une étroite collaboration avec Ethan. En effet, l'implémentation d'un nouveau système multijoueur nécessitait d'assurer l'intégration des mécaniques d'Invector à ce système. Nous avons donc beaucoup échangé tout au long de la semaine. Une fois qu'Ethan a publié une première version stable de son implémentation, Pierre-Antoine s'est immédiatement attelé à son intégration.
+\\[0.4cm]
+Malheureusement, les premiers bugs sont rapidement apparus, dont deux majeurs. Le premier concernait un problème d'instanciation des personnages. En effet, Photon n'était pas en mesure de créer correctement une instance d'un nouveau joueur utilisant le module Invector. Cela était dû à une fonctionnalité spécifique de Photon qui ne sélectionnait pas le type d'objet approprié en paramètre. Nous avons donc dû réécrire une partie du code de la bibliothèque afin de résoudre ce problème. Cependant, un second problème subsistait. Celui-ci sera présenté plus en détail par Ethan par la suite lors de la première soutenance technique.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Multijoueur (Ethan)}
+En début de semaine, nous avons créé un lobby simple en utilisant l'API de Photon, ce qui nous a permis de commencer à organiser les joueurs dans des sessions multijoueurs. Cependant, nous avons dû modifier la façon dont le personnage apparaissait dans la scène, car nous ne pouvions pas simplement l'ajouter directement. Pour pouvoir l'invoquer avec Photon, nous avons utilisé le Game Manager, ce qui a permis de garantir que le personnage soit visible et synchronisé entre tous les clients du jeu. À ce stade, les lobbies fonctionnaient bien et un personnage apparaissait pour chaque joueur, mais nous avons remarqué un problème : les joueurs des autres clients n'étaient pas visibles. Après quelques recherches, nous avons découvert qu'il nous manquait le composant Photon View, essentiel pour la synchronisation des objets entre les différents clients. Une fois le Photon View ajouté, tous les joueurs pouvaient se voir, mais nous avons fait face à un autre problème : chaque joueur pouvait contrôler tous les personnages de la scène, ce qui est problématique. Pour résoudre cela, nous avons utilisé l'API Photon View pour attribuer un identifiant unique à chaque personnage au moment de leur apparition. Cet identifiant est lié à la session du client. Enfin, pour éviter que les joueurs ne contrôlent les personnages des autres, nous avons ajouté une simple condition dans la fonction de mouvement qui vérifie si l'identifiant de la session correspond à celui du personnage, ne permettant ainsi à chaque joueur que de contrôler son propre personnage.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Amine a peaufiné les fonctionnalités validées en réalisant plusieurs tests pour s’assurer de leur bon fonctionnement. Il a vérifié l’ouverture et la fermeture des fenêtres, afin d’éviter tout bug, ainsi que le bon fonctionnement du bouton \texttt{Jouer} pour garantir une transition fluide vers la carte du jeu. Il a également confirmé que la redirection vers le site web de l’équipe fonctionne correctement dans les builds finaux. En parallèle, il a pris soin de nettoyer le code, afin de le rendre plus lisible et mieux organisé, ce qui permet d’améliorer la clarté et la maintenance à long terme. Ces ajustements ont permis de stabiliser l’interface et d’assurer une expérience utilisateur optimale.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Multijoueur (Ethan) : Débogage de la caméra.
+    \item Programmation du Personnage (Pierre-Antoine) : Débogage.
+    \item I.A. (Pierre-Antoine) : Recherches sur l'Intelligence Artificielle.
+    \item Prog. UI (Amine) : Débogage de l'Interface Utilisateur.
+\end{itemize}
+
+
+
+
+
+
+\newpage
+\section{Semaine du 23 décembre 2024}
+\subsection*{Gestion du Projet (Ethan, Gaël)}
+Au début des congés de Noël, Ethan a transmis à chaque membre de l’équipe une répartition claire et détaillée des tâches à réaliser durant les deux semaines à venir. Armand et Ethan se concentreront sur l’implémentation du mode multijoueur, une tâche cruciale pour la réussite du projet, tandis qu’Amine s’occupera de la création de l’interface utilisateur en s’appuyant sur le rapport de design élaboré et partagé par Gaël le 12 décembre.
+\\[0.4cm]
+Gaël, de son côté, assumera un rôle central de gestion en veillant au respect des délais, au suivi de l’implémentation des tâches assignées, ainsi qu’à la rédaction de ce rapport de projet. Parallèlement, en s’appuyant sur le cahier des charges et en intégrant les éventuels ajustements nécessaires, il s’attachera à garantir qu’une première version du projet soit présentable au client dans les meilleurs délais. Cette version inclura une interface utilisateur fonctionnelle, la prise en charge du réseau et du multijoueur, ainsi que les bases des mouvements, animations, et textures graphiques.
+\\[0.4cm]
+Enfin, Pierre-Antoine se consacrera au développement des premières étapes d’implémentation des intelligences artificielles (IA), qui seront essentielles pour programmer les comportements des ennemis dans les phases ultérieures du jeu. Cette répartition des responsabilités vise à optimiser l’avancement du projet et à s’assurer que chaque membre contribue efficacement à sa réussite.
+
+\subsection*{Multijoueur (Ethan, Armand)}
+Un problème a été identifié dans le mode multijoueur concernant la gestion de la caméra. Lorsqu'un deuxième joueur rejoignait un lobby, sa caméra se dirigeait automatiquement vers le premier joueur de la session, compromettant ainsi l'expérience de jeu. Après analyse, il est apparu que ce dysfonctionnement provenait de la caméra spéciale fournie par le système Invector. Malgré plusieurs heures consacrées à tenter de déboguer et résoudre cette anomalie, aucune solution satisfaisante n'a pu être trouvée. En conséquence, nous avons pris la décision de ne plus utiliser Invector pour cette fonctionnalité. Nous avons donc entrepris de recréer entièrement les animations ainsi que la gestion de la caméra afin d'assurer un fonctionnement stable et adapté aux exigences du mode multijoueur.
+\\[0.4cm]
+De son côté, Armand, après avoir décidé de ne plus utiliser Invector, a recréé un dépôt et importé tous les paramètres importants ainsi que le travail des autres. Il a commencé par implémenter le mode multijoueur. Le principal problème rencontré était que certains objets de jeu (\texttt{GameObjects}) ne comportaient pas le composant Photon requis pour leur association. Armand a également recréé une vue déroulante (\texttt{scroll view}) permettant de lister toutes les sessions en ligne et de les rejoindre facilement. Par ailleurs, il a mis en place un champ de saisie (\texttt{input text}) qui permet à l’utilisateur de créer sa propre session de jeu. Cette session sera automatiquement affichée dans la vue déroulante lorsqu’un autre joueur lance le jeu. Enfin, Armand a modifié le mécanisme de génération des joueurs (\texttt{spawn player}). Plutôt que d’avoir un joueur préchargé dans la scène, le joueur est désormais téléchargé dès le lancement de la session. Il apparaît ensuite dans la scène avec un identifiant unique, ce qui permet d’éviter les problèmes de caméra et de mouvement identifiés précédemment.
+\newpage
+\subsection*{Programmation des IA (Pierre-Antoine)}
+Pour aborder ce sujet, Pierre-Antoine a adopté une méthode consistant à repartir des bases. À cette fin, Pierre-Antoine a développé un micro-projet en 2D dans lequel il a intégré des entités dotées de mécanismes couramment associés à l’intelligence artificielle. Cette démarche lui a permis d’explorer plusieurs aspects techniques intéressants. Il convient tout d’abord de préciser que le terme « intelligence artificielle » est souvent un abus de langage dans le domaine des jeux vidéo. En réalité, ces systèmes reposent sur des algorithmes déterministes et des logiques prédéfinies, sans réelle notion d’apprentissage ou d’intelligence au sens strict.
+\\[0.4cm]
+Dans ce projet, Pierre-Antoine a examiné plusieurs concepts fondamentaux couramment utilisés dans le développement d’\texttt{IA} pour les jeux vidéo. Parmi ceux-ci, les arbres de décision m’ont permis de structurer les choix comportementaux des entités, tandis que le pathfinding, à l’aide d’algorithmes comme Dijkstra, s’est révélé crucial pour optimiser leurs déplacements. Pierre-Antoine a également mis en œuvre des algorithmes de poursuite et d’évasion afin de simuler des comportements dynamiques, ainsi que des mécanismes de perception de l’environnement. Après avoir consulté la documentation technique de Unity et étudié les concepts théoriques, Pierre-Antoine a entrepris l’implémentation de ces notions dans notre projet. Toutefois, en raison d’un problème de compatibilité non encore résolu entre Proton et Invector, il a été décidé de reporter cette tâche à une date ultérieure.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Cette semaine, Amine a corrigé les derniers bugs signalés, notamment ceux liés aux fenêtres qui ne se fermaient pas correctement lorsque plusieurs boutons étaient cliqués rapidement. Il a également ajusté les positions des fenêtres afin qu’elles soient bien alignées sur tous les types d’écrans, garantissant ainsi une présentation cohérente sur différentes résolutions. Après ces ajustements, les tests finaux ont confirmé que l’interface est désormais stable et pleinement fonctionnelle, offrant une expérience utilisateur fluide et sans erreur.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Prog. Mécaniques (Ethan) : Programmer les armes.
+    \item Prog. Personnage (Pierre-Antoine, Gaël) : Programmer le suivi de la caméra 3ème personne du personnage
+    \item Prog. IA (Pierre-Antoine, Amine) : Créer une première version stable d'un système d'intelligence artificiel
+    \item Multijoueur (Pierre-Antoine) : Réorganiser intégralement le système de suivi de caméra afin d'éliminer les bugs liés au mode multijoueur
+    \item Prog. UI (Amine) : Intégrer les fonctionalités du menu au projet.
+\end{itemize}
+
+
+
+
+\newpage
+\section{Semaine du 30 décembre 2024}
+
+\subsection*{Gestion de Projet (Gaël, Ethan)}
+En raison de la décision d'abandonner le package Invector, une réorganisation des tâches a été nécessaire. Cela a impliqué de recréer à partir de zéro l'animation des personnages, ainsi que de revoir et ajuster les systèmes de mouvements pour garantir une expérience de jeu fluide et cohérente. Ethan et Pierre-Antoine ont pris en charge la gestion de ces nouvelles responsabilités, en réassignant les tâches aux membres de l'équipe pour que chaque aspect de l'animation et du contrôle des personnages soit adapté aux nouveaux besoins du projet. Cette réorganisation a permis de maintenir une progression régulière du développement, malgré les ajustements nécessaires, et a assuré que les nouveaux systèmes de mouvement respectent les standards de qualité définis.
+\\[0.4cm]
+Gaël a assuré un suivi rigoureux de l’avancement du projet durant cette période. Il a organisé et animé plusieurs réunions, en présentiel ou sur Discord avec les membres de l'équipe, permettant d’évaluer le progrès des différentes tâches et d’ajuster les priorités en conséquence. Ces sessions de débriefing ont également servi à identifier les éventuelles difficultés rencontrées par les membres et à y apporter des solutions adaptées. Par ailleurs, Gaël s’est investi dans la coordination des efforts pour garantir la cohérence globale du projet. En collaboration avec les responsables de chaque domaine, il a veillé à ce que les échéances soient respectées et que chaque livrable soit conforme aux attentes. Ce travail méthodique a permis de maintenir une dynamique positive au sein de l’équipe tout en assurant une progression régulière vers les objectifs fixés. En plus de ses tâches de gestion, Gaël a pris des notes détaillées lors de chaque réunion et de chaque étape importante du projet, ce qui lui a permis de rédiger ce présent rapport, en \LaTeX, de manière claire et précise. Cette démarche a assuré une bonne documentation des différents aspects du projet, tout en facilitant le suivi des décisions et des évolutions au sein de l’équipe.
+
+
+\subsection*{Création du Site Web (Armand)}
+Après la publication de son site auprès de ses collègues, Armand a apporté plusieurs corrections pour résoudre les erreurs identifiées. Parmi celles-ci, il a réglé le problème de la vidéo qui tournait en boucle sur la page « index » ainsi que l'affichage déséquilibré sur les smartphones. Il a également corrigé l'erreur d'affichage de la page 404, qui n'était pas accessible. Concernant la page dédiée au jeu, Armand a ajouté quelques avis fictifs à titre temporaire, dans l’attente de recueillir de véritables retours d’utilisateurs après les tests du jeu. Ces avis authentiques seront ensuite publiés sur le site. Enfin, il a ajouté un crédit au bas de chaque page, incluant des informations sur l’équipe et un lien redirigeant vers la page des développeurs.
+
+
+\subsection*{Programmation des Personnages (Pierre-Antoine, Gaël)}
+
+Cette semaine a été particulièrement intense, en grande partie en raison des nombreux problèmes rencontrés avec la caméra. Dans un premier temps, nous avions choisi de nous appuyer exclusivement sur des outils natifs. Cependant, notre code, peu optimisé et jamais entièrement fonctionnel, nous a conduits à nous orienter vers une bibliothèque nommée Cinemachine. Nous avons alors entrepris de réorganiser l'intégralité de notre ancien code afin d'intégrer cette solution.
+
+Malgré trois jours perdus à tenter de développer ces fonctionnalités manuellement, nous sommes parvenus, en seulement deux soirées, à obtenir une caméra pleinement opérationnelle. Toutefois, un nouveau problème s'est rapidement révélé : l'incompatibilité entre Cinemachine, notre bibliothèque de gestion de caméra 3D, et Proton, notre bibliothèque réseau. Nous avons décidé de faire de cette problématique une priorité pour la semaine à venir.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Programmation de l'Interface Utilisateur (Armand)}
+Armand a également pris l’initiative de concevoir une vidéo d’écran de chargement intégrant des animations et des transitions fluides, visant à améliorer l'expérience utilisateur dès le lancement du jeu. Cette vidéo, qui se déclenche automatiquement à l'ouverture de l'application, joue un rôle clé dans l’immersion du joueur. Elle présente notamment le logo officiel du jeu, accompagné de celui de l’équipe de développement, renforçant ainsi l’identité visuelle du projet. Les transitions soigneusement élaborées apportent une touche professionnelle et harmonieuse à l’ensemble, rendant ce moment non seulement informatif mais également agréable à regarder. Ce choix d’intégrer un écran de chargement contribue à capter l’attention du joueur dès les premières secondes du jeu, tout en mettant en valeur l’entreprise et les compétences de l’équipe.
+
+\subsection*{Multijoueur (Armand)}
+Armand a procédé à une modification du design du lobby après le lancement du jeu, en optant pour une interface plus esthétique et moderne. Ce design vise à offrir une expérience utilisateur améliorée, rendant l’interface plus intuitive et visuellement attrayante. Désormais, les joueurs peuvent facilement créer leur propre session grâce à une présentation plus claire et épurée des options disponibles, facilitant ainsi leur navigation au sein du menu. De plus, Armand a ajouté une barre de chargement permettant de suivre en temps réel l’avancement du processus de lancement de la session. Cette fonctionnalité vise à maintenir l’utilisateur informé tout au long de la phase de préparation du jeu. Lors de l’arrivée sur la GameScene, une transition visuelle a été intégrée, renforçant l’aspect professionnel du jeu. Cette barre de chargement, couplée à la transition, améliore non seulement la lisibilité du processus de chargement mais aussi le confort général de l’utilisateur, en lui offrant une indication plus claire de la progression du chargement.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Amine a finalisé l’intégration de l’interface utilisateur dans le projet global. Toutes les fonctionnalités du menu principal, telles que les boutons interactifs, la fermeture des fenêtres via les croix, la navigation vers la carte du jeu, la possibilité de quitter le jeu et le lien vers le site web, ont été entièrement implémentées et sont désormais fonctionnelles. De plus, Amine a créé un guide d’utilisation détaillé pour l’équipe, afin de les aider à modifier ou personnaliser l’interface si nécessaire, garantissant ainsi une gestion optimale et autonome de l’interface dans le cadre du développement continu du projet.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Programmation des Mécaniques : (Ethan, Pierre-Antoine) : Intégrer les armes dans le jeu.
+    \item Multijoueur (Ethan) : Gestion des Dégâts et de la Caméra.
+    \item Gestion du Projet (Gaël) : Relecture complète et actualisation des supports du projet : Site Web, cahier des charges, rapports.
+    \item Programmation des Personnages (Ethan) :  Correction du bug de compatibilité des deux librairies.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 06 janvier 2025}
+
+\subsection*{Création du Site Web (Gaël, Armand)}
+Cette semaine, Gaël a consacré une attention particulière à la relecture et à l’amélioration globale du site web, accomplissant un travail considérable pour le rendre plus immersif, harmonieux et accessible. Parmi les actions menées, il a procédé à une relecture complète du contenu existant, en identifiant et en corrigeant des fautes d’orthographe, tout en reformulant certaines phrases pour mieux plonger les visiteurs dans l’univers du jeu et renforcer l’immersion dans le lore. En parallèle, des ajustements significatifs ont été réalisés sur les aspects visuels du site. Gaël a modifié la palette de couleurs pour mieux correspondre à l’ambiance sombre et intrigante associée à l’univers de la mafia, tout en veillant à optimiser l’accessibilité. Cela inclut un soin particulier au contraste des couleurs, adapté aussi bien au mode sombre qu’au mode clair, selon les différentes pages du site. Enfin, une tâche essentielle a été accomplie avec la rédaction complète de la politique de confidentialité. Ce document, désormais intégré dans une section dédiée de l’onglet « Informations », garantit la transparence et le respect des données personnelles des utilisateurs.
+
+Armand s'occupe quand à lui des derniers préparatifs. Il réalise des captures d’écran destinées au site web et procède à la compilation du jeu. Par la suite, il utilise un installateur Windows, tel qu’InnoSetup, pour intégrer le jeu au site, facilitant ainsi sa distribution et son installation.
+
+\subsection*{Programmation des Mécaniques (Ethan)}
+Après la réorganisation des tâches, Ethan a pris en charge le développement du système d'animation du personnage. Il a d'abord établi les fondations nécessaires à l'intégration des animations en concevant un Animation Controller, utilisé comme base pour gérer les transitions et les états des animations. Par la suite, il a intégré les animations de base, telles que l’animation d’attente (idle), de marche, de course, ainsi que les animations de saut et de tir. Ces ajouts permettent au personnage de réagir de manière dynamique aux différentes actions du joueur.
+
+
+\subsection*{Animation (Pierre-Antoine, Amine)}
+Au cours de cette période, nous avons concentré nos efforts sur l’amélioration esthétique du jeu. Si les mécaniques de saut et de tir étaient déjà opérationnelles, elles manquaient cependant d’une présentation visuelle soignée et immersive. Pour remédier à cela, nous avons utilisé Blender afin de concevoir des animations simples mais efficaces, visant à enrichir l’aspect visuel et à rendre ces mécaniques plus attrayantes pour le joueur.
+
+\subsection*{Programmation des Mécaniques (Ethan)}
+Dans cette étape du développement, Ethan a intégré les armes dans le jeu, en commençant par l'ajout d'un asset de pistolet pour le personnage joueur. Le pistolet a été attaché à la main du personnage, garantissant ainsi une interaction visuelle cohérente. Par ailleurs, un script de santé a été ajouté aux joueurs pour suivre leur état de santé tout au long de la partie. Ethan a également implémenté la fonction \texttt{takeDamage()} afin de permettre l'infliction de dégâts aux éléments du jeu, assurant une gestion correcte des actions de combat. Un script spécifique à l’arme a été créé et associé au pistolet, comprenant une fonction de tir qui inflige des dégâts aux objets, offrant ainsi une mécanique de combat interactive et réaliste.
+
+\subsection*{Multijoueur (Ethan)}
+Dans le cadre du développement multijoueur, Ethan a ajouté une caméra spéciale au joueur pour déterminer avec précision où celui-ci regarde. Ensuite, la fonction de gestion des dégâts a été modifiée, avec l’ajout d’un attribut permettant de gérer les dégâts via le réseau. Par ailleurs, la fonction de tir a été adaptée pour utiliser les RPC de Photon, intégrant une référence à la caméra spéciale. Grâce à l'API RayTrace de Unity, Ethan a vérifié la trajectoire calculée par la caméra (et le pistolet). Si cette trajectoire touche un objet de jeu possédant une propriété de santé, la fonction de gestion des dégâts de l’objet est appelée, infligeant les dégâts correspondants.
+
+
+
+
+
+\newpage
+\section{Semaine du 13 janvier 2025}
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Afin d’offrir une expérience utilisateur cohérente et immersive, Amine a recensé les besoins en matière d’interface utilisateur, notamment en ce qui concerne la gestion de la vie du joueur. L’objectif était de concevoir une interface claire et ergonomique permettant aux joueurs de visualiser en temps réel l’état de leur personnage avec une barre de vie, comme on en retrouve dans une grande partie des jeux vidéos de nos jours. Cette réflexion a porté sur l'organisation de la disposition des éléments graphiques, et la fluidité de leur mise à jour en fonction des événements en jeu, garantissant ainsi une meilleure lisibilité.
+\\[0.4cm]
+Un premier prototype de barre de vie a été conçu et intégré à l’interface utilisateur, directement relié à l’instance du joueur. Ce système permet d’afficher dynamiquement l’état de santé du personnage en fonction des événements du jeu, tels que la réception de dégâts ou l’utilisation de soins. L’objectif était d’assurer une mise à jour instantanée de cette donnée tout en maintenant la fluidité, notamment en multijoueur.
+
+\subsection*{Réseau (Amine)}
+Dans le cadre du développement multijoueur en réseau, Amine a assuré la mise en place de l’architecture \textit{Photon}, qui a été une étape clé pour assurer une synchronisation efficace entre les différentes instances du jeu. Ce système permet d’assurer la cohérence des informations partagées entre les joueurs, notamment en ce qui concerne l’état de leur personnage, les dégâts subis, etc. L’implémentation de cette architecture a nécessité une optimisation des ressources réseau afin de minimiser la latence et garantir une expérience fluide en ligne.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Prog. Mécaniques (Pierre-Antoine) : Débogage.
+    \item Prog. UI (Amine) : Améliorer l'affichage de la barre de vie et un écran de mort.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 20 janvier 2025}
+
+\subsection*{Programmation des Mécaniques (Pierre-Antoine)}
+Durant cette semaine, l’accent a été mis sur la correction de divers bugs affectant le fonctionnement du jeu. Une première tentative de correction de la caméra a été entreprise afin de résoudre un problème récurrent où celle-ci présentait des sautillements aléatoires. Cette première approche a permis d’atténuer le phénomène à environ \texttt{70\%}, mais sans l’éliminer totalement, nécessitant ainsi des ajustements futurs. L’objectif était d’assurer une stabilité optimale pour garantir une expérience fluide aux joueurs, sans perturbations visuelles.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Dans le but d’offrir un retour visuel plus immersif, Amine a amélioré l’affichage de la barre de vie avec l’ajout d’effets visuels pour la perte et le gain de points de vie afin de garantir une expérience utilisateur harmonieuse. Cette barre de vie permet ainsi au personnage de mieux visualiser sa santé actuelle, notamment lorsqu'il prend des dégâts.
+\\[0.4cm]
+D'autre part, Amine a commencé à travailler sur la synchronisation des valeurs de vie via \textit{Photon}. L’objectif est d’assurer une mise à jour cohérente et instantanée de la barre de vie de chaque joueur, indépendamment du client connecté. Cela implique la gestion des événements réseau pour transmettre les modifications de points de vie en temps réel, tout en optimisant la bande passante pour éviter toute surcharge. Ce travail constitue une étape clé pour garantir l’équité et la fluidité des interactions en jeu. Des premiers tests ont été réalisés afin de s’assurer que la barre de vie affiche bien la valeur correcte pour le joueur.
+\\[0.4cm]
+Enfin, la conception de l’écran de mort (\textit{Death Screen}) a également été commencée. Ce nouvel écran doit non seulement afficher les informations relatives à la défaite du joueur, mais aussi proposer différentes options, telles que la possibilité de réapparaître ou de quitter la partie. Son design sera réalisé parallèlement de son implémentation.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Prog. UI (Armand) : Ajouter une musique au jeu et améliorer le lobby.
+    \item Prog. UI (Amine) : Améliorer le design du menu en fonction des retours du jury.
+    \item Prog. IA (Pierre-Antoine) : Implémenter l'algorithme \texttt{A*}.
+    \item Prog. UI (Amine) : Ajouter une barre d'endurance à l'interface utilisateur
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 27 janvier 2025}
+
+\subsection*{Programmation de l'Interface Utilisateur (Armand, Amine)}
+Concernant le design et l’implémentation du menu, et à la suite des retours du jury lors de la soutenance, Armand et Amine ont décidé d’apporter des modifications au menu et au lobby du jeu pour les rendre plus dynamiques et attractifs. Ils ont d’abord collaboré pour intégrer les deux interfaces sur une même scène Unity, réduisant ainsi les demandes de ressources et améliorant la fluidité globale. Amine s’est chargé de repenser le fond d’écran en y ajoutant des animations en cohérence avec l’univers graphique du jeu. Pour cela, il a utilisé des assets libres de droits et des créations personnelles réalisées via \textit{Canva} et des images tirées du jeu pour une authenticité maximale. Enfin, il a redessiné les textures des boutons, optimisé leur format, puis préparé les éléments graphiques pour qu’Armand puisse les intégrer ultérieurement.
+\\[0.4cm]
+De son côté, Armand a contribué à l’amélioration de l’expérience utilisateur en intégrant une musique d’introduction libre de droits, choisie pour refléter l’ambiance du jeu et renforcer l’immersion des joueurs dès le lancement. Par ailleurs, il a repensé l’architecture du lobby en le fusionnant avec la scène du menu, optimisant ainsi le chargement et garantissant une transition fluide et naturelle entre ces deux interfaces, améliorant à la fois la réactivité et la cohérence de la navigation.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Menu.png}
+    \caption{Menu du Jeu}
+    \label{fig:enter-label-2}
+\end{figure}
+
+\subsection*{Programmation des IA (Pierre-Antoine)}
+Cette semaine a été soldée à une tentative d’implémentation de l’algorithme \texttt{A*} dans le but d’optimiser le déplacement des personnages non-joueurs contrôlés par l’IA. L’algorithme codé qui avait été utilisé précédemment a dû être abandonné en raison de sa consommation excessive de ressources CPU, entraînant des plantages du jeu après un certain temps d’exécution. Parallèlement, une version bêta des IA a été mise en place, bien qu’elle ne disposait encore que de textures limitées. Cette première version a néanmoins permis de poser les bases du comportement des intelligences artificielles, comme un point de départ essentiel pour les améliorations à venir.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+La barre de vie a été entièrement intégrée au système de gestion de la santé du joueur, assurant ainsi une mise à jour dynamique des points de vie en fonction des événements du jeu. De plus, en complément de la barre de vie, une barre d’endurance a été ajoutée et positionnée juste en dessous. Celle-ci permet de représenter visuellement la gestion de l’énergie du joueur, un élément essentiel influençant certaines mécaniques de gameplay, comme les actions nécessitant un effort prolongé (courir, attaques, etc.). L’implémentation de cette barre d’endurance a nécessité une réflexion sur la manière dont elle se vide et se régénère, mais garantit une bonne lisibilité et visualisation pour le joueur, sans trop surcharger l’interface utilisateur.
+\\[0.4cm]
+Un travail supplémentaire a été réalisé pour que la synchronisation de l’endurance fonctionne uniquement avec son joueur en réseau, sans impacter les autres clients connectés. Cette optimisation permet d’éviter les conflits de données et d’assurer que chaque joueur voit sa propre endurance de manière précise et indépendante. L’intégration de Photon dans cette mécanique a nécessité quelques ajustements afin de garantir une gestion des valeurs transmises, minimisant la latence et préservant les performances globales du jeu en multijoueur.
+\\[0.4cm]
+Enfin, les premiers tests d’affichage du \textit{Death Screen} ont été réalisés, avec une attention particulière à sa lisibilité et à son impact visuel. Des ajustements ont été effectués pour optimiser son intégration à l’expérience de jeu. L’objectif est d’offrir un retour clair et immersif au joueur en cas de défaite, tout en proposant une navigation simple vers les options disponibles, telles que la réapparition ou le retour au menu principal.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Icons/health.png}
+    \caption{Barre de Vie et Endurance}
+\end{figure}
+
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Game Design (Gaël) : Dessiner la carte de jeu avec les éléments de l'histoire.
+    \item Prog. UI (Armand) : Améliorer le menu du jeu.
+    \item Prog. IA (Pierre-Antoine) : Réessayer l'implémentation avec \texttt{AIModule}.
+    \item Prog. UI (Amine) : Améliorer les performances et corriger la santé et l'endurance.
+    \item Prog. Mécaniques (Ethan) : Corriger la caméra.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 03 février 2025}
+
+\subsection*{Game Design (Gaël)}
+Afin de faciliter l’implémentation future d’une mini-map graphique intégrée au jeu dans le cadre de la programmation de l’interface utilisateur, d’optimiser la gestion du comportement et des déplacements des personnages dans la ville dans le cadre du développement des intelligences artificielles, et de garantir une répartition équilibrée de l’action sur l’ensemble de la carte plutôt que sur une zone restreinte, Gaël a réalisé un schéma détaillé de la ville à destination de l’équipe. Ce plan indique les lieux clés de l’histoire, tels que la banque, le commissariat de police ou encore l’hôtel de ville, tout en reprenant fidèlement la structure et les décors de l’environnement urbain. Il est inspiré du design de la carte de la ville de \textit{Lego City} dans le jeu \textit{Lego City Undercover} (2013), possédant une carte contenant des lieux similaires et un design simplifié et compréhensible. Il servira de support pour assurer une cohérence entre le développement technique et la narration du jeu et facilitera la mise en œuvre des tâches mentionnées dans les semaines à venir.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/MapRemplie.png}
+    \caption{Schéma de la Ville}
+    \label{fig:enter-label-3}
+\end{figure}
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+D'une part, concernant le réseau, une optimisation a été réalisée afin de limiter les envois de données inutiles via Photon lors de la mise à jour des barres de vie et d’endurance en multijoueur. Cette optimisation contribue également à une meilleure stabilité des performances, notamment lors de sessions réseau impliquant plusieurs joueurs simultanément. D'autre part, plusieurs corrections de bugs ont été apportées pour résoudre des problèmes liés à l’actualisation incorrecte des barres de vie et d’endurance. Certains joueurs rencontraient des incohérences où leur interface n’affichait pas les valeurs correctes, notamment lors des transitions entre différentes phases du jeu ou en raison de désynchronisations avec le serveur. Enfin, des ajustements visuels ont été effectués pour améliorer la lisibilité des barres de vie et d’endurance. L’objectif était d'affiner le design. Ces ajustements renforcent l’ergonomie de l’interface et améliorent l’expérience utilisateur en rendant les informations plus accessibles et intuitives.
+
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Programmation de l'Interface Utilisateur (Armand)}
+Armand a poursuivi l’amélioration du menu en affinant les animations, initialement jugées trop abruptes dans la première version. Il a mis en place un effet d’apparition progressif pour le bouton \texttt{JOUER}, qui se transforme ensuite en une bande noire révélant les options \texttt{SOLO}, \texttt{ONLINE} et \texttt{EXIT}. Chaque élément bénéficie désormais d’une animation sur mesure, réalisée à l’aide de l’outil d’animation de Unity, garantissant une transition fluide et un rendu visuel professionnel. Afin d’optimiser les performances, seul le fond d’écran demeure statique, tandis que les autres éléments exploitent un système de fragments animés, réduisant ainsi l’impact sur les ressources du jeu.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/MenuStart.png}
+    \caption{Interface du Menu}
+    \label{fig:enter-label-4}
+\end{figure}
+
+
+\subsection*{Programmation des IA (Pierre-Antoine)}
+Après l’abandon de l’algorithme maison, le développement a été concentré sur l’effacement de ses restes et la recherche d’une nouvelle approche pour la gestion des déplacements des IA. Un module de base de Unity, \texttt{UnityEngine.AIModule}, a été sélectionné et intégré afin d’assurer une implémentation plus stable et performante. Cependant, cette transition a engendré de nouveaux bugs, constatés par Gaël lors d'un test, dont voici le rapport du test : « bien que les IA puissent désormais se déplacer de manière plus fluide, elles ont tendance à se coincer aléatoirement à divers endroits du décor.» L’analyse du problème a révélé que la cause principale résidait dans le type de \textit{hitbox} utilisé, nécessitant une modification afin d’éviter ces blocages intempestifs.
+
+
+
+\subsection*{Programmation des Mécaniques (Ethan)}
+À la suite des observations du jury, Ethan a procédé à des ajustements ont été nécessaires concernant la gestion de la caméra, qui présentait des problèmes de suivi du joueur et de réactivité aux mouvements de la souris. Initialement, la caméra était intégrée directement au \textit{prefab} du personnage, ce qui engendrait un léger décalage, supposé être causé par \textit{Photon} tentant de synchroniser en temps réel les mouvements de la caméra sur le serveur. Cette configuration entraînait une latence perceptible, altérant la fluidité du gameplay. Afin de résoudre ce problème, la caméra a été dissociée du \textit{prefab} du joueur et transformée en un élément indépendant de l’interface. Cette nouvelle approche permet d’assurer un suivi plus précis et réactif des mouvements du personnage, sans interférences liées à la synchronisation réseau. Cette refonte a nécessité une modification du script de gestion de l’apparition du joueur, afin de créer dynamiquement le \textit{prefab} de la caméra et d’assigner les variables appropriées pour garantir un suivi optimal. Grâce à ces ajustements, la caméra fonctionne désormais de manière autonome tout en restant parfaitement alignée avec le mouvement du joueur, améliorant ainsi l’expérience de jeu et la fluidité des contrôles.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Multijoueur (Armand) : Améliorer la gestion des ressources du jeu.
+    \item Multijoueur (Amine) : Améliorer l'interface du multijoueur.
+    \item Prog. IA (Pierre-Antoine) : Faire en sorte que les IA ne se déplacent pas sur la route.
+    \item Prog. UI (Amine) : Tester et Déboguer en multijoueur la barre de vie et commencer le menu pause.
+    \item Prog. Mécaniques (Ethan) : Corriger les problèmes de déplacement des personnages.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 10 février 2025}
+
+\subsection*{Multijoueur (Armand, Amine)}
+Amine a conçu de nouvelles interfaces pour le mode multijoueur, intégrant des champs de saisie, un affichage dynamique des salons et un bouton dédié à la création de salon. Il a également implémenté un \textit{prefab} réutilisable pour les salons publics, facilitant leur gestion et leur affichage, tout en ajoutant un bouton \texttt{Retour} précédemment absent pour améliorer l’ergonomie.
+\\[0.4cm]
+Parallèlement, Armand a retravaillé les scripts de gestion des transitions entre écrans, rendant la navigation plus fluide et intuitive. Il a optimisé l’intégration du système Photon afin de corriger les bugs récurrents liés à la connexion et a développé une méthode de désactivation intelligente des canvas, permettant une meilleure gestion des ressources et une expérience utilisateur plus réactive.
+
+\subsection*{Programmation des IA (Pierre-Antoine)}
+Une phase de correction intensive a été menée pour résoudre les problèmes liés à l’implémentation du nouveau système de navigation des IA. Un travail important a été réalisé sur la gestion des surfaces où les IA peuvent marcher afin d’éviter que les IA ne se déplacent en dehors des chemins prévus à cet effet. Les PNJ se déplacent ainsi en privilégiant les passages piétons et les trottoirs aux routes. Pour ce faire, un système de catégorisation a été mis en place, classifiant les différentes surfaces du jeu et définissant précisément celles sur lesquelles les IA étaient autorisées à évoluer. Cette amélioration a permis de renforcer la cohérence et la crédibilité de leurs déplacements, tout en réduisant les risques de comportements incohérents.
+
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Cette semaine, Amine a réalisé une série de tests approfondis menée en mode multijoueur afin de vérifier que les valeurs de vie et d’endurance restent parfaitement synchronisées entre tous les joueurs connectés, afin de vérifier que les bugs de la semaine dernière ont bien été tous corrigés. L’objectif était d’identifier d’éventuelles incohérences, notamment en cas de connexion instable ou de latence réseau. Ces tests ont permis de valider que chaque joueur reçoit correctement l’état des autres en temps réel, sans décalage ni erreur d’affichage. Cependant, un problème lié à la mise à jour de l’endurance a été corrigé. Dans certains cas, une latence empêchait le jeu de détecter immédiatement que l’endurance du joueur était épuisée, lui permettant ainsi de continuer à courir temporairement malgré une barre théoriquement vide. Ce dysfonctionnement semble avoir été résolu. Désormais, la consommation et la régénération de l’endurance sont immédiatement prises en compte, empêchant toute exploitation involontaire du système et impliquant une impossibilité pour le joueur de sprinter sans énergie.
+\\[0.4cm]
+Par ailleurs, le développement d’un menu de pause a été débuté afin d’offrir aux joueurs une interface leur permettant de mettre en pause leur partie. Ce menu inclura plusieurs options, telles que la reprise de la partie, évidemment, ainsi qu’une option de retour au menu principal. La réflexion sur son ergonomie vise à proposer une navigation intuitive, tout en s’assurant que son activation et sa désactivation s’intègrent naturellement dans l’expérience de jeu sans perturber les mécaniques en cours.
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Programmation des Mécaniques (Ethan)}
+Depuis le début du développement, plusieurs problèmes ont été identifiés concernant le déplacement du personnage, notamment des difficultés à franchir certaines surfaces de manière fluide. Malgré plusieurs itérations et ajustements du système existant, ces problèmes persistaient et causaient des problèmes dans l’expérience de jeu. Afin de résoudre ces limitations, une refonte complète du système de mouvement a été réalisée par Ethan. Le \texttt{Rigidbody}, utilisé initialement pour gérer les déplacements du joueur, a été remplacé par un \texttt{Character Controller}, une solution plus adaptée aux jeux nécessitant un contrôle précis et réactif des mouvements. Cette transition permet d’obtenir un comportement plus fluide, évitant notamment les problèmes d’adhérence et de collision imprécise avec l’environnement. En parallèle, une refactorisation du code responsable des déplacements et des animations a été effectuée dans un souci de simplification et d’optimisation. Cette restructuration améliore la lisibilité du code, facilite la relecture par l'équipe et permet une meilleure intégration des futures améliorations. Grâce à cette refonte, le personnage bénéficie désormais d’un contrôle plus précis, offrant une expérience de jeu plus agréable et intuitive, comme si l'on jouait normalement et instinctivement au jeu.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Prog. IA (Gaël) : Ajouter des trajets sur Unity pour les destinations des PNJ.
+    \item Prog. IA (Pierre-Antoine) : Implémenter les animations des IA.
+    \item Prog. UI (Armand) : Améliorer le design des paramètres du jeu.
+    \item Prog. UI (Amine) : Améliorer la gestion des mises à jour de la santé et avancer sur le menu pause.
+    \item Prog. Mécaniques (Ethan) : Continuer l'amélioration des mouvements.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 17 février 2025}
+
+\subsection*{Programmation des IA (Gaël, Pierre-Antoine)}
+Après le travail en amont réalisé par le groupe sur le déplacement des Intelligences Artificielles, qui prennent la forme de personnages non-joueurs (PNJ). Gaël s'est occupé de gérer les trajets des personnages d'un point A vers un point B. Les points d'arrivée sont répartis en fonction du Game Design établi, de telle façon que les personnages soient visibles au maximum lors du jeu, autour des axes clés de la carte. On peut citer par exemple certains trajets partant du point d'apparition de la carte se dirigeant vers l'hôtel de ville ou le commissariat de police, deux endroits clés de l'histoire autour desquels se trouveront des IA. Le trajet des IA privilégiera les trottoirs et passages piétons plutôt que la route, et évitera évidemment de tomber dans le fleuve. L'implémentation des Intelligences Artificielles en tant que personnages sera faite la semaine prochaine en leur affectant leurs trajets et destinations respectives.
+\\[0.4cm]
+D'autre part, l’implémentation des animations pour les IA a été une majeure partie du travail de Pierre-Antoine cette semaine. Pour ce faire, l’ancien système d’animation utilisé pour le joueur a été massivement modifié et adapté aux besoins spécifiques des entités contrôlées par l’intelligence artificielle. Cette étape a permis de donner davantage de réalisme aux mouvements des IA, améliorant ainsi leur intégration visuelle et leur crédibilité dans l’environnement du jeu. L’optimisation de ces animations a été un exercice, nécessitant une réécriture des scripts et des mécanismes de gestion des états d’animation.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/DestinationPoint.png}
+    \caption{Destinations des Personnages de la Ville}
+    \label{fig:enter-label-5}
+\end{figure}
+
+\newpage % mise en forme de fin de rapport (Gaël)
+
+\subsection*{Programmation de l'Interface Utilisateur (Armand)}
+Dans le but de finaliser les options du jeu, Armand a repensé le menu des options en intégrant un slider de volume global, synchronisé avec les paramètres audio du jeu pour un contrôle précis du son. Il a également ajouté un bouton redirigeant vers le site officiel de \textit{Bloodline Heritage}, accompagné d’une animation de barre de chargement lors du clic afin d’améliorer la fluidité de l’expérience utilisateur. Par ailleurs, l’interface a été optimisée pour s’adapter à toutes les résolutions d’écran, garantissant une expérience homogène et ergonomique sur l’ensemble des supports.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Un travail d’optimisation a été effectué afin d’améliorer la gestion des mises à jour de la vie et de l’endurance en multijoueur. La fréquence de synchronisation a été ajustée afin de trouver un équilibre optimal entre performance et réactivité. L’objectif est de trouver le meilleur équilibre possible entre performance et réactivité, réduisant ainsi la charge réseau sans compromettre l’expérience utilisateur. Par ailleurs, des tests finaux ont été réalisés pour détecter d’éventuels problèmes de synchronisation en multijoueur et des corrections ont été adoptées.
+\\[0.4cm]
+En ce qui concerne l'avancement des pauses, le développement du menu de pause a progressé avec l’ajout des fonctionnalités essentielles. Les boutons interactifs ont été implémentés, permettant au joueur d’accéder aux options de base, de reprendre la partie ou de retourner au menu principal. Ce menu sera potentiellement enrichi dans les prochaines semaines avec des options supplémentaires et des optimisations d’ergonomie.
+
+\subsection*{Programmation des Mécaniques (Ethan)}
+Afin d’améliorer les déplacements du personnage, une fusion des animations de course et de marche a été réalisée. En utilisant le contrôleur d’animation de Unity et les couches d’animation, il a été possible de combiner ces deux animations de manière à ce que la transition entre elles soit plus naturelle. Le système d’animation de Unity permet de superposer plusieurs animations grâce aux couches, et cette fonctionnalité a été exploitée pour créer une transition fluide en fonction de la vitesse du personnage. Ainsi, plutôt que de passer d’une animation de marche à une animation de course, un mélange subtil a été appliqué pour rendre les mouvements plus cohérents et réalistes, en ajustant les transitions en temps réel selon les entrées du joueur. Cette approche améliore l’aspect visuel du jeu, mais également l’immersion.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Icons/walking.png}
+    \caption{Giovanni marchant dans la ville de Ravenwood}
+    \label{fig:enter-label-8}
+\end{figure}
+
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Prog. IA (Gaël) : Ajout des personnages avec leurs destinations respectives.
+    \item Prog. IA (Pierre-Antoine) : Débogage et système de destination aléatoire.
+    \item Multijoueur (Armand) : Synchroniser les IA avec le Multijoueur.
+    \item Site Web (Armand, Gaël) : Mettre à jour le site web et améliorer sa fluidité.
+    \item Prog. UI (Amine) : Terminer la synchronisation de la barre de vie et finir le menu pause.
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Semaine du 24 février 2025}
+
+\subsection*{Programmation des IA (Gaël, Pierre-Antoine)}
+Maintenant que les trajets sont fonctionnels et que les points de destination ont été placés sur la carte, Gaël a entrepris la création de plusieurs personnages afin de commencer à peupler la ville avec des personnages non-joueurs (PNJ). Ces derniers se déplacent en suivant les itinéraires définis, empruntant exclusivement les trottoirs et passages piétons intégrés au décor, et rejoignent ainsi leur destination. À ce stade du développement, une fois arrivés à destination, par exemple devant la banque, les personnages restent immobiles. Ce comportement temporaire sera corrigé au cours de cette semaine ou de la suivante, afin qu’ils puissent effectuer le trajet retour et ainsi rendre leurs déplacements plus dynamiques et réalistes.
+\\[0.4cm]
+D'autre part, la dernière partie du travail de Pierre-Antoine sur les IA a été consacrée à la correction des derniers bugs affectant le comportement général des IA. Un des problèmes concernait l’imprécision des animations, engendrant des décalages visuels et des incohérences dans les transitions entre les différents états d’animation. Des ajustements ont été apportés pour affiner ces transitions et garantir un rendu plus fluide et naturel. Ces corrections finales ont permis de stabiliser le système, assurant une meilleure cohérence entre les déplacements et les animations des IA, et marquant ainsi l’aboutissement de cette suite d’améliorations. De plus, Pierre-Antoine a conçu un système de destination aléatoire basé sur des points d’intérêts ajoutés par Gaël la semaine dernière, complétant le parcours des PNJ sur la carte.
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/moves.png}
+    \caption{Exemple de Déplacement des Personnages (en bleu)}
+    \label{fig:enter-label-7}
+\end{figure}
+
+\subsection*{Programmation des IA (Ethan)}
+En parallèle du travail réalisé par Gaël et Pierre-Antoine sur les Intelligences Artificielles (IA) sous forme de PNJ, une petite optimisation a été apportée par Ethan à la gestion des destinations des PNJ, en ajustant la manière dont ces derniers interagissent avec les environnements spécifiques. Auparavant, les PNJ pouvaient se déplacer indifféremment à travers toute la scène, mais cette méthode ne prenait pas en compte les objets qui devraient réellement constituer leur parcours, comme les trottoirs, les chemins dans les parcs ou les passages piétons. Ethan a donc utilisé le script Unity mentionné précédemment pour mieux définir ces lieux par lesquels les PNJ peuvent passer. Ces zones ont été ajoutées au layer \texttt{NavMeshLayer}, et le \textit{NavMesh} a été ajusté pour ne considérer que ces éléments lors de la génération des trajets des PNJ. De plus, le système de recherche implémenté par Pierre-Antoine, utilisant des points de passage a été amélioré. Auparavant, les points étaient appelés à l’aide d’un préfixe \texttt{DestinationPoint\_[name]}, où les \texttt{DestinationPoint\_} représentent les points de passage implémentés par Gaël, et étaient recherchés dans toute la scène, ce qui engendrait une recherche très coûteuse et inefficace. Ethan donc encapsulé ces points de passage dans un nouvel objet parent et modifié le script pour qu’il se concentre uniquement sur cet objet, réduisant ainsi la charge de recherche et améliorant les performances en rendant les déplacements des PNJ plus précis et plus rapides.
+
+\newpage % mise en forme de fin rapport (Gaël)
+
+\subsection*{Développement de Projet (Ethan)}
+Afin de faciliter l’organisation de différents objets de jeu et d’améliorer le \textit{workflow}, Ethan a développé un petit outil à l’aide de Unity Script. Cet outil permet de créer un \texttt{GameObject} vide avec un nom spécifique, puis de l’utiliser comme parent pour regrouper tous les objets qui respectent une expression régulière donnée. Cela lui a permis d’automatiser la gestion des objets dans la scène, en facilitant leur organisation et en assurant que les objets pertinents soient facilement accessibles sous un même objet parent, simplifiant ainsi les manipulations et l’accès aux différents éléments du jeu.
+
+\subsection*{Multijoueur (Armand)}
+À la suite de l’intégration des Intelligences Artificielles (\textit{I.A.}) par Pierre-Antoine et Gaël sous forme de personnages non-joueurs (\textit{P.N.J.}), Armand a assuré leur synchronisation en temps réel à l’aide de \textit{Photon View} et \textit{Photon Animator}, garantissant une cohérence fluide entre les clients. Confronté à des freezes occasionnels dus à la surcharge d’objets, il a optimisé les composants réseau et éliminé les éléments superflus, stabilisant ainsi les performances et améliorant la réactivité du jeu en multijoueur.
+
+
+\subsection*{Création du Site Web (Armand, Gaël)}
+Le site a été mis à jour avec des animations réactives et un design optimisé pour une navigation fluide sur mobile. Les visuels ont été retravaillés afin d’améliorer la lisibilité, et de nouvelles captures du jeu ont été ajoutées pour mieux illustrer l’expérience. Par ailleurs, le rapport de développement a été enrichi avec de nouvelles informations et publié en ligne, offrant un suivi détaillé de l’évolution du projet. Le site a ainsi été amélioré dans le fond et dans la forme afin de s'adapter au mieux à toutes les plateformes et répondre à toutes les attentes.
+
+\subsection*{Programmation de l'Interface Utilisateur (Amine)}
+Le système de synchronisation des barres de vie et d’endurance a été finalisé par Amine afin de garantir une parfaite correspondance avec les valeurs réelles du joueur en réseau. Grâce à une optimisation des échanges de données via Photon, les informations affichées à l’écran reflètent désormais avec précision l’état actuel du joueur, sans retard ni incohérence. Cette mise à jour assure que chaque session client connectée reçoit des valeurs exactes, évitant ainsi les écarts entre l’affichage local et la réalité des statistiques du personnage. Des tests finaux ont également été réalisés en conditions réelles par l'équipe afin d’évaluer la stabilité du système, notamment en cas de variations de latence. L’objectif était d’analyser le comportement des barres de vie et d’endurance dans différentes situations, y compris lors de pertes temporaires de connexion ou de lags. Enfin, le menu de pause a été terminé avec des ajustements finaux et des modifications mineures portant sur l’ergonomie et l’apparence visuelle. Le menu de pause est donc considéré comme implémenté. L'implémentation finale de la barre d'endurance sera la prochaine étape à réaliser dans l'interface utilisateur.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Gameplay (Gaël, Pierre-Antoine) : Implémenter un système de quêtes.
+    \item Réseau (Armand) : Travailler sur les instances multijoueur et les fonctionnalités réseau.
+    \item Prog. UI. (Amine) : Intégrer les interfaces pour les armes et l’écran de fin de partie.
+    \item Prog. Mécaniques (Ethan) : Implémenter le saut et les dégâts.
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 17 mars 2025}
+
+\subsection*{Gestion de Projet (Ethan)}
+Durant cette semaine, Ethan, en tant que chef de projet, a procédé à une répartition stratégique des tâches selon les besoins et priorités du projet. L’implémentation du système de missions et du gameplay ayant été identifiée comme prioritaire, Gaël et Pierre-Antoine ont été désignés pour en assurer le développement.
+Parallèlement, Armand s’est vu confier la résolution des problématiques liées aux instances multijoueur et au réseau. Il est également chargé de l’actualisation de l’identité visuelle du jeu, incluant la refonte du menu principal et de l’interface utilisateur. Amine est chargé de la conception et de l’intégration des interfaces liées aux armes ainsi que de l’écran de fin de partie (écran de mort).
+Enfin, Ethan assurera la coordination entre les différentes branches du projet afin de garantir une cohérence globale. Il prendra également en charge l’implémentation des mécaniques de saut et de gestion des dégâts.
+
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine)}
+Cette semaine, Gaël et Pierre-Antoine ont commencé le développement du système de quêtes. Ils ont conçu une architecture modulaire permettant de structurer le jeu en trois missions, chacune composée de plusieurs quêtes. Pour ce faire, ils ont implémenté une classe \texttt{Quest}, encapsulant les informations essentielles à chaque quête (type, description, objectifs, etc.). L’identifiant unique de chaque quête est généré via un singleton garantissant l’unicité au sein du système. Deux types de quêtes ont été définis à l’aide d’un \textit{Enum} : \texttt{Quote} qui représentant une ligne de texte dans le déroulement narratif et Order : représentant une action spécifique à accomplir. L’architecture du code a été segmentée en trois couches principales : la classe \texttt{Mission}, jouant le rôle de registre centralisé des quêtes, l’instanciation individuelle de chaque quête afin de les centraliser au sein de la classe Mission et la classe \texttt{QuestManager}, responsable de l’itération séquentielle des missions à l’aide d’une file, ainsi que de la navigation entre les différentes quêtes d’une mission.
+
+
+\subsection*{Programmation de l’Interface Utilisateur (Amine)}
+Cette semaine, Amine a réalisé une revue complète de l’interface utilisateur existante, initialement conçue pour des tests internes et des démonstrations. Cette évaluation a permis d’identifier les éléments devenus obsolètes ou non cohérents avec le gameplay final. En conséquence, il a procédé à la suppression de plusieurs composants UI qui ne faisaient plus partie de la version définitive du jeu, dans un objectif de clarté visuelle et d’optimisation de l’expérience utilisateur.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Gameplay (Gaël, Pierre-Antoine) : Implémenter le système de quêtes.
+    \item Prog. UI. (Amine) : Afficher les quêtes à l’écran.
+    \item Site Web (Gaël) : Travailler sur l’identité visuelle.
+    \item Prog. Soins (Amine) : Débuter l’implémentation à l’hôpital.
+    \item Gestion de Projet (Ethan) : Réorganiser le code et optimiser les fonctions critiques.
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 24 mars 2025}
+
+\subsection*{Gestion de Projet (Ethan)}
+Au cours de cette semaine, Ethan a entrepris une refonte du code ainsi que de l’arborescence des fichiers du projet. Cette restructuration vise à améliorer la lisibilité et la maintenabilité du code, en vue des futures phases de développement. Il en a également profité pour optimiser plusieurs fonctions critiques, coûteuses en ressources et fréquemment sollicitées, dans le but d’améliorer les performances globales et la fluidité du jeu.
+
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine, Amine)}
+Suite à la structuration du système de quêtes réalisée la semaine dernière, Gaël et Pierre-Antoine ont entamé l’implémentation opérationnelle de cette architecture. Un système d’itération des quêtes a été développé à l’aide d’une structure de type file, permettant une gestion séquentielle des missions et de leurs objectifs. Dans le même temps, une réflexion a été menée sur la mise en place d’un système de sauvegarde. Cependant, en raison de sa complexité technique et de l'investissement en temps qu’il aurait nécessité, cette fonctionnalité a été temporairement écartée afin de ne pas compromettre le calendrier du projet. L’équipe a également collaboré avec Amine pour intégrer une représentation graphique des quêtes à l’écran. Après plusieurs essais, il a été décidé d’afficher les quêtes en bas de l’interface de jeu. Cette position permet une bonne lisibilité tout en préservant une vision dégagée pour le joueur.
+
+
+\subsection*{Site Web (Gaël)}
+Gaël a poursuivi l’amélioration du site web du projet. Cette semaine, il s’est concentré sur l’identité visuelle du site en adaptant la palette de couleurs aux nouveaux éléments graphiques et logos, renforçant ainsi la cohérence visuelle de l’ensemble du projet.
+
+\subsection*{Programmation des Soins (Amine)}
+Amine a entamé l’implémentation du système de soin au sein de l’hôpital, ajoutant ainsi une nouvelle fonctionnalité interactive à l’environnement de jeu. Les principales avancées sont les suivantes. D’une part, la création d’un système d’interaction contextuelle permettant au joueur de déclencher volontairement une action, lorsqu’il se trouve dans la zone de l’hôpital, un message s’affiche à l’écran, invitant le joueur à se faire soigner en appuyant sur la touche \texttt{[Y]}. Le soin n’est activé qu’après validation de cette interaction, ce qui permet de préserver le contrôle du joueur tout en renforçant l’immersion. Ce système repose sur une détection de position du joueur couplée à une logique conditionnelle d’activation, désormais intégrée au moteur de jeu.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Gameplay (Gaël, Pierre-Antoine) : Corriger les bugs et ajouter des raccourcis clavier.
+    \item Prog. Soins (Amine) : Ajouter une interface visuelle.
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 31 mars 2025}
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine)}
+Durant la première moitié de la semaine, Gaël et Pierre-Antoine se sont concentrés sur la résolution de divers bugs affectant l’affichage et le système d’itération des quêtes. Une phase de re-factorisation et de simplification du code a permis d’identifier et de corriger efficacement les anomalies rencontrées. Dans le cadre de la préparation à la démonstration du jeu, deux raccourcis clavier ont été introduits à des fins de test et de confort : \texttt{[M]} ou \texttt{[K]} permettent de passer directement à la mission suivante et \texttt{[L]} permet de réinitialiser la progression des missions. Ces fonctionnalités seront particulièrement utiles pour accélérer les tests et les présentations sans être pénalisés par la durée ou la difficulté de certaines missions. Enfin, l’apparence du texte affiché à l’écran a été revue afin d’améliorer sa lisibilité. Une police plus simple et plus adaptée à l’interface utilisateur a été adoptée, renforçant ainsi le confort visuel pour le joueur.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/firstQuote.png}
+    \caption{Affichage des Missions}
+\end{figure}
+
+\subsection*{Programmation des Soins (Amine)}
+Amine a poursuivi l’intégration du système de soin en se concentrant sur l’aspect visuel. L'implémentation de l’interface utilisateur dédiée au soin, incluant une barre de progression visuelle représentant le processus de soin en cours et une interaction fluide et informative pour renforcer l’immersion du joueur. De plus, le système vérifie les états de santé déjà présents dans le projet, aussi bien en mode solo qu’en mode multijoueur. Cette étape a permis d’assurer une intégration cohérente du soin avec la logique de gestion des dégâts et de la santé du joueur.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Gameplay (Gaël, Pierre-Antoine) : Ajouter \texttt{StartQuest()} et \texttt{EndQuest()}.
+    \item Prog. Soins (Amine) : Ajouter des feedbacks visuels et textuels, tester tous les cas d’usage, corriger le déclenchement par la touche [Y].
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 07 avril 2025}
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine)}
+Au cours de cette semaine, Gaël et Pierre-Antoine ont poursuivi l’évolution du système de quêtes en implémentant deux méthodes clés au sein de la classe \texttt{Quest} : \texttt{StartQuest()} et \texttt{EndQuest()}. Ces deux fonctions définissent respectivement les comportements à exécuter au lancement et à la complétion d’une quête. Leur contenu est spécifique à chaque quête et permet, entre autres, de déclencher l’apparition d’ennemis, d’activer ou charger certaines zones du jeu ou d’adapter la progression de l’histoire en fonction de l’état d’avancement du joueur. Cette modularité permet une gestion fine et évolutive du gameplay, tout en offrant une meilleure immersion et une logique de progression dynamique au sein du jeu.
+
+
+\subsection*{Programmation des Soins (Amine)}
+Au cours de cette semaine, Amine a poursuivi le développement du système de soin en se concentrant sur l'amélioration de l’expérience utilisateur et la stabilisation du mécanisme d’interaction. Les actions menées sont l’ajout de contrôles visuels et textuels au moment du déclenchement du soin, soit l’affichage de messages contextuels confirmant le lancement ou l’annulation du soin et le renforcement du retour visuel pour informer clairement le joueur de l’état du processus. Ensuite, des tests visant à la vérification du bon déroulement du soin (lancement, interruption volontaire ou accidentelle, fin complète) et une simulation de différents scénarios en solo et en multijoueur. Enfin, la résolution de bugs, qui ont provoqué la correction d’un dysfonctionnement empêchant la prise en compte de la touche \texttt{[Y]}, qui servait à initier le soin depuis la zone de l’hôpital. Ces ajustements ont permis d’atteindre une version fonctionnelle, intuitive et robuste du système de soin.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Identité Visuelle (Armand, Gaël, Pierre-Antoine) : Créer et intégrer de nouveaux logos adaptés à l’univers mafieux du jeu.
+    \item Soins (Amine) : Développer un système de transport automatique à l’hôpital via ambulance.
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 14 avril 2025}
+
+\subsection*{Identité Visuelle (Armand, Gaël, Pierre-Antoine)}
+Après avoir échangé avec notre professeur de méthodologie à propos du logo de notre jeu ainsi que de celui de notre entreprise, nous avons constaté que leur style ne correspondait pas à l’univers de notre jeu, centré sur le thème de la mafia. En conséquence, pendant que Gaël et Pierre-Antoine travaillaient sur le logo de l’entreprise, Armand s’est chargé de revoir entièrement l’aspect esthétique du logo du jeu afin de l’adapter à son univers. Il a notamment ajouté un chapeau, rappelant celui des mafieux italiens, qu’il a positionné de manière à ce qu’il recouvre les deux lettres « O » du titre, les transformant ainsi visuellement en yeux sous le chapeau. Ce choix renforce l’identité mafieuse du logo. Armand a également ajouté un trait rouge et retravaillé le style général du logo pour qu’il soit davantage en adéquation avec l’ambiance sombre et élégante propre à un jeu de mafia.
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Images/LogoBloodlineHeritage.png}
+    \caption{Logo de Bloodline Heritage}
+\end{figure}
+
+\subsection*{Programmation des Soins (Amine)}
+Durant cette semaine, Amine a amorcé le développement d’un système de transport automatique vers l’hôpital par ambulance, enrichissant l’expérience de jeu en cas de situation critique. La principale avancée est la détection avec condition : si le joueur se trouve à proximité d’une ambulance et que son état de santé est jugé critique, un message contextuel s’affiche à l’écran. Le joueur peut alors appuyer sur la touche \texttt{[Y]} pour être transporté automatiquement vers l’hôpital. Ce mécanisme repose sur une logique d’événement conditionnel similaire à celle du soin manuel, tout en renforçant l'immersion et la cohérence narrative dans le gameplay.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+    \item Prog. UI (Ethan) : Corriger le déplacement de caméra possible en pause.
+    \item Prog. UI (Armand) : Créer et intégrer une nouvelle vidéo d’intro cohérente avec l’univers du jeu.
+    \item Prog. Soins (Amine) : Finaliser le transport automatique à l’hôpital et corriger la détection d’ambulance.
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 21 avril 2025}
+
+\subsection*{Programmation de l’Interface Utilisateur (Ethan)}
+Cette semaine, Ethan s’est principalement consacré à la correction de bugs liés à l’interface utilisateur. Parmi les améliorations notables, il a notamment corrigé un dysfonctionnement qui permettait au joueur de déplacer la caméra alors que le jeu était en pause. Ce correctif renforce la cohérence de l'expérience utilisateur en garantissant un véritable état de pause lors de l’interruption du jeu.
+
+\subsection*{Programmation de l’Interface Utilisateur (Armand)}
+Après avoir modifié le logo de l’entreprise ainsi que celui du jeu, Armand a repris la vidéo d’introduction affichée sur l’écran de démarrage. Il a utilisé \textit{Canva} et ses outils d’animation pour créer une nouvelle vidéo de présentation, intégrant à la fois le logo de l’entreprise et celui du jeu, désormais en accord avec l’univers mafieux. Cette vidéo a ensuite été intégrée dans le jeu, apportant une introduction plus professionnelle et cohérente avec l’identité visuelle du projet.
+\\[0.4cm]
+Ensuite, ce fut au tour du menu principal d’être retravaillé. Armand a également remplacé la vidéo d’introduction pour offrir une présentation plus immersive et donner un aperçu de l’ambiance et de l’action du jeu. Pour cela, il a réalisé une vidéo d’animation directement dans \textit{Unity}, en utilisant différentes caméras placées à divers endroits de la carte. Il a effectué plusieurs prises de vue dans des zones clés de la map, puis sélectionné les meilleures séquences pour effectuer le montage vidéo avec \textit{Microsoft Clipchamp}. À la fin du montage, il a ajouté une animation d’introduction avec une image fixe, puis a exporté la vidéo finale pour l’intégrer dans le menu principal du jeu.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/video.png}
+    \caption{Capture d'écran du menu}
+\end{figure}
+
+\subsection*{Programmation des Soins (Amine)}
+Amine a finalisé l’implémentation complète du système de transport vers l’hôpital, accessible via interaction avec une ambulance en cas de santé critique. Les principales fonctionnalités mises en place sont les suivantes : le transport instantané : une fois la touche \texttt{[Y]} pressée, le joueur est immédiatement téléporté à l’hôpital, bien qu’aucune animation de déplacement ne soit encore intégrée, la transition de scène fonctionne parfaitement, garantissant une expérience fluide. Et de plus, la résolution de bugs techniques, comme la correction d’un problème de détection de proximité avec les ambulances, initialement non fonctionnelle, et l’ajustement des paramètres \texttt{IsTrigger} sur les composants \texttt{BoxCollider}, nécessaires pour une détection correcte des zones d’interaction. Cette fonctionnalité est désormais opérationnelle et intégrée au sein de la logique de santé globale du jeu.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+\item Prog. des Mécaniques (Ethan) : Ajouter une animation de mort avec chute en arrière.
+\item Mini-Map (Gaël) : Développer une mini-carte 2D pour la ville de Ravenwood.
+\item Gameplay (Gaël) : Implémenter un raccourci clavier \texttt{[N]} pour valider les quêtes Quote.
+\item Prog. UI (Armand) : Concevoir le fond du menu pause et créer les assets des boutons. Ajouter la touche « \textit{Échap} » pour la pause.
+\item Prog. des Soins (Amine) : Ajouter confirmation UI, optimiser détection touche [Y], stabiliser téléportation vers l’hôpital.
+\end{itemize}
+
+
+\newpage
+\section{Semaine du 28 avril 2025}
+
+\subsection*{Programmation des Mécaniques (Ethan)}
+Cette semaine, Ethan poursuit le développement des animations du jeu en ajoutant de nouveaux comportements visuels. Parmi les ajouts importants, figure une animation de mort améliorée, dans laquelle le personnage chute en arrière avant de disparaître. Cette animation contribue à renforcer l'aspect immersif et réaliste du gameplay en apportant un retour visuel cohérent lors de la défaite d’un personnage.
+
+\subsection*{Mini-Map (Gaël)}
+Gaël a développé une nouvelle mini-carte 2D pour la zone de jeu de la ville de Ravenwood. Cette carte offre une meilleure lisibilité de l’environnement immédiat et améliore l’orientation du joueur dans l’espace de jeu depuis la dernière version que vous pouvez trouver en page 32 de ce rapport, qui avait été dessinée il y a trois mois. Cette carte constitue une première étape vers une interface de navigation plus complète et plus intuitive qui sera développée par Ethan.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Ravenwood.png}
+    \caption{Nouvelle Carte de Ravenwood}
+\end{figure}
+
+\subsection*{Gameplay (Gaël)}
+Comme mentionné précédemment, le système de quêtes distingue deux types, \texttt{Quote} qui correspond à une étape narrative ou un message à lire et \texttt{Order} qui implique une action à accomplir comme éliminer un ennemi ou atteindre une zone. Pour simplifier la validation des quêtes de type \texttt{Quote}, Gaël a implémenté un raccourci clavier, \texttt{[N]} (Next), permettant au joueur de marquer la quête comme lue et de passer automatiquement à l’étape suivante. Cette fonctionnalité vise à fluidifier la narration et améliorer l’expérience utilisateur, en particulier lors des phases de lecture ou de dialogues scénarisés.
+
+\subsection*{Programmation de l’Interface Utilisateur (Armand)}
+Armand s’est maintenant chargé de l’apparence du menu pause. Il utilise tout d’abord \textit{Canva} pour concevoir le fond de l’écran de pause, puis pour créer les assets des boutons. Ensuite, sur \textit{Unity}, il place une image en plein écran avec une certaine transparence afin de signaler à l’utilisateur qu’il se trouve dans un menu pause, tout en laissant visible ce qui se passe en arrière-plan. Il ajoute ensuite les deux boutons et modifie leur code. Il commence par rajouter la touche « \textit{Échap} » comme alternative à la touche \texttt{[P]} pour mettre le jeu en pause. Il améliore également la détection des clics sur les boutons pour activer correctement l’interface utilisateur (UI).
+\\[0.4cm]
+Une petite difficulté s’est présentée : il fallait désactiver les commandes de la caméra ainsi que les mouvements du personnage pendant la pause. Il a donc fallu identifier le fichier principal qui gérait ces éléments, à savoir « \texttt{MouvementReborn.cs} ». Un booléen a été ajouté pour détecter si l’une des touches du menu pause était activée. Si c’est le cas, une fonction de ce fichier est appelée pour désactiver les contrôles de la caméra et du joueur. On rajoute aussi une petite ligne pour activer le curseur afin de cliquer sur les boutons. De plus, si le joueur a lancé une partie en mode solo, le menu pause doit également mettre en pause l’ensemble du jeu, y compris les NPC.
+\\[0.4cm]
+Les fonctionnalités des boutons ont aussi été ajoutées : d’une part le bouton Continuer permet de reprendre la partie en désactivant le booléen « \texttt{isPaused} », et d’autre part le bouton \textit{Quitter} permet de revenir au menu principal du jeu.
+\\[0.4cm]
+Pour finir, une petite fonctionnalité qu'Armand a souhaité ajouter est l’affichage du ping. En effet, pour déboguer, il a mis en place un texte indiquant la latence. Cela lui a permis de comprendre que certains bugs liés aux NPC ne venaient pas de son code, mais de sa connexion Internet. Il a donc décidé de conserver cette information, avec une amélioration esthétique, afin d’afficher la latence de manière claire.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{pause.png}
+    \caption{Écran de Pause}
+\end{figure}
+
+\subsection*{Programmation des Soins (Amine)}
+Durant cette semaine, Amine a apporté des améliorations visant à renforcer la fluidité et la fiabilité des interactions liées au transport vers l’hôpital et au système de soin. Le travail réalisé est d’abord l’affinage des déclencheurs d’interaction avec la mise en place d’une interface utilisateur de confirmation lors des actions de transport et de soin et l’optimisation de la détection de la pression de la touche \texttt{[Y]} pour garantir une activation précise et réactive. De plus, la stabilisation du système de téléportation, avec la correction de dysfonctionnements liés aux méthodes utilisées pour la téléportation sans animation pour assurer une transition fluide et stable malgré l’absence d’animation visuelle. Ces ajustements ont permis d’améliorer significativement l’expérience utilisateur et la robustesse du système d’interactions médicales.
+\\[1cm]
+\textbf{À FAIRE :}
+\begin{itemize}
+\item Prog. des Ennemis (Ethan) : Mettre en place un système de gestion des dégâts pour ennemis plus cohérent et flexible.
+\item Mini-Map (Ethan) : Intégrer la carte 2D en temps réel dans le coin supérieur droit avec future option plein écran.
+\item Gameplay (Gaël, Pierre-Antoine, Ethan) : Implémenter un système d’écouteurs d’événements pour validation automatique des quêtes et corriger bug lié à la zone pare-balles.
+\item Easter Eggs (Gaël, Pierre-Antoine) : Ajouter des easter eggs disséminés dans la ville pour renforcer l’engagement joueur.
+\item Prog. des Soins (Amine) : Refonte légère de l’interface utilisateur soin/transport, tests combinés des interactions complexes (soin, transport, interruptions).
+\end{itemize}
+
+\newpage
+\section{Semaine du 05 mai 2025}
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine, Ethan)}
+Cette semaine a été marquée par l’implémentation d’un système d’écouteur d’évènements, une avancée clé pour la gestion automatisée des quêtes. Ces \textit{Listeners} permettent d’écouter des événements spécifiques en jeu, comme l’entrée d’un joueur dans une zone prédéfinie, ou la détection de l’élimination ou de la survie d’un ennemi. Ces mécanismes ont été directement connectés au système de quêtes. En effet, une quête peut désormais être automatiquement validée dès qu’un événement attendu est déclenché. Cette intégration marque un pas important vers une narration interactive et réactive. Ces écouteurs d'événements permettent donc de valider la quête actuelle et sont actifs uniquement lors de la ou les quêtes qu’ils traitent.
+\\[0.4cm]
+Cependant, l’intégration technique entre Unity et notre architecture logicielle a soulevé plusieurs difficultés. Ethan a apporté un soutien technique crucial en participant à une très longue session de débogage, permettant de stabiliser le système. Le bug en question était causé par la zone de détection autour de la banque, qui agit comme un bouclier pare-balles. Nous avons donc dû spécifier dans le script des armes que les balles doivent ignorer ces zones pour résoudre notre problème.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{EventListener.png}
+    \caption{Détecteur de Zone de la Banque}
+\end{figure}
+
+
+
+
+\subsection*{Easter Eggs (Gaël, Pierre-Antoine)}
+Dans une optique de valorisation de l’expérience utilisateur et dans le cadre d’une stratégie de communication à visée commerciale, Gaël et Pierre-Antoine ont intégré huit easter eggs disséminés dans la ville du jeu. Inspirée des pratiques emblématiques de l’industrie des jeux vidéos, cette démarche vise à renforcer l’engagement des joueurs grâce à la découverte de contenus cachés, stimuler la curiosité et l’exploration au sein de l’univers du jeu, et de créer des moments de surprise et de plaisir, indépendamment du gameplay principal. Ces éléments dissimulés, volontairement subtils, apportent une touche de mystère et d’humour qui enrichit la rejouabilité et peut favoriser l'expérience autour du jeu. Ces easter eggs sont soigneusement cachés dans les décors urbains. Saurez-vous tous les trouver ?
+
+\subsection*{Mini-Map (Ethan)}
+Une carte 2D a été intégrée dans le jeu, venant compléter la fonctionnalité de mini-carte initialement développée pour la zone Ravenwood. Elle permet désormais aux joueurs de se repérer plus efficacement dans l’univers du jeu, quelle que soit leur position. Elle est située dans le coin supérieur droit, et un raccourci clavier sera bientôt ajouté pour la mettre en plein écran. Cette carte en temps réel permet également de visualiser les impacts de balles vue du ciel, cette fonctionnalité bien que n’étant pas prévue, sera préservée car elle est très réaliste et qu’elle rend le jeu d’autant plus intéressant.
+
+
+\subsection*{Programmation des Ennemis (Ethan)}
+Ethan a mis en place un nouveau système de gestion des dégâts pour les ennemis, rendant leur comportement plus cohérent face aux attaques du joueur. Ce système permettra une meilleure flexibilité pour les futures évolutions de l'intelligence artificielle des ennemis et des types d’ennemis.
+
+\subsection*{Programmation des Soins (Amine)}
+Au cours de cette semaine, Amine a procédé à une refonte légère de l’interface utilisateur liée au système de soin et de transport, dans le but d’améliorer la lisibilité des informations affichées, et intégrer visuellement l’interface à l’univers graphique « mafieux » du jeu, afin d’assurer une cohérence esthétique globale. Par ailleurs, une série de tests combinés a été réalisée pour valider les interactions complexes entre les différentes fonctionnalités, comme le soin effectué après un transport, le transport initié sans blessure préalable et l’interruption volontaire ou accidentelle du soin. Ces tests ont permis de confirmer la robustesse et la cohérence du système dans divers scénarios de jeu.
+
+
+\newpage
+\section{Semaine du 12 mai 2025}
+
+\subsection*{Programmation des Ennemis (Ethan)}
+Ethan a poursuivi les travaux sur l’intelligence artificielle des ennemis, en consolidant le comportement implémenté lors des semaines précédentes. Cette phase de finalisation permet d’assurer une cohérence dans les réactions des ennemis et leur intégration fluide au sein du gameplay. La fusion de la branche ennemies avec celle du gameplay sera la plus urgente pour permettre à Gaël et Pierre-Antoine d’instancier correctement les ennemis dans le jeu.
+
+\subsection*{Mini-Map (Gaël, Ethan)}
+Des icônes spécifiques ont été ajoutées à la mini-carte afin de représenter visuellement certains éléments interactifs ou importants de l’environnement (objectifs, Joueurs, PNJ, etc.). Ces ajouts renforcent la lisibilité de la carte et améliorent l’orientation du joueur au sein des zones de jeu. Une liste complète de ces icônes est disponible dans le manuel d’utilisation du jeu, accessible depuis notre site web.
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine)}
+Cette semaine a été principalement consacrée à la finalisation de l’implémentation des \textit{Listeners} pour l’ensemble des missions du jeu. Grâce à cela, toutes les quêtes disposent désormais de mécanismes d’écoute automatisés permettant de détecter et valider les événements requis. Par ailleurs, une attention particulière a été portée à l’intégration visuelle d’une quête spécifique : la quête 18 concernant la pose d’une bombe dans un parking. Pour cette mission, plusieurs éléments ont été développés, un nouvel élément d’interface utilisateur, permettant au joueur de visualiser en temps réel la possession de la bombe et une représentation graphique de la bombe dans le décor, activée dynamiquement en fonction de l’avancement de la quête. Cette implémentation s’est avérée complexe, en raison des nombreuses modifications nécessaires dans le code d’activation de l’objet, entraînant plusieurs itérations techniques et des ajustements de coordination entre le système de quêtes et le moteur du jeu.
+
+\subsection*{Programmation des Ennemis (Armand)}
+Pendant que Gaël et Pierre-Antoine terminaient les quêtes, Armand a commencé à travailler sur les personnages ennemis. Son objectif était d’utiliser un \textit{prefab} existant pour en récupérer l’apparence (le \texttt{mesh}) et le modifier sous Blender. Cependant, il a rapidement rencontré un problème : Blender ne fonctionnait pas du tout sur sa machine. En cherchant une solution sur Internet, il découvre le package \texttt{ProBuilder}, qu’il installe dans Unity. Cet outil lui permet de modifier l’apparence d’un objet en ajoutant des formes, en modifiant les couleurs ou même en supprimant certaines parties du modèle. Armand copie donc l’apparence du policier et la transforme considérablement pour créer un tout nouveau personnage. La principale difficulté était d’ajouter des éléments complexes, comme la lettre B de FBI. Cette lettre étant composée de courbes, il était difficile de la reproduire avec des formes de base. Il a donc utilisé deux sphères et un trait, creusé un trou dans les sphères, ajusté leurs bords, puis assemblé le tout pour représenter la lettre B.
+Cependant, il ne suffisait pas de recréer l’apparence : le personnage n’avait pas encore de squelette (\texttt{rigging}), nécessaire pour l’animation. Armand utilise alors un outil en ligne appelé \textit{Mixamo}, qui permet de générer automatiquement un squelette pour un modèle 3D. Pour cela, il faut placer manuellement des points sur les articulations clés du personnage (cou, genoux, coudes, etc.), puis l’algorithme crée le squelette adapté. Armand obtient ainsi un nouveau personnage entièrement fonctionnel. Il ne restait plus qu’à remplacer le spawner dans les quêtes pour que ce nouveau personnage soit utilisé à la place de l’ancien.
+
+\newpage
+\section{Semaine du 19 mai 2025}
+
+\subsection*{Compilation et Gestion de Projet (Ethan, Armand)}
+Durant cette semaine, Ethan a été confronté à une série de complications techniques liées à la gestion des branches et des conflits Git, nécessitant un effort considérable en temps et en énergie. Ce travail, bien que fastidieux estimé à près de 15 heures cumulées, a permis de restaurer une base de code stable et fonctionnelle, essentielle à la poursuite du développement. Par ailleurs, Ethan et Armand ont collaboré à la génération d’un exécutable du jeu. Cette étape marque une avancée importante vers la préparation d’une version de démonstration distribuable, en vue des futures présentations ou tests utilisateurs.
+
+\subsection*{Gameplay (Gaël, Pierre-Antoine, Amine)}
+Pour cette dernière semaine de développement actif, Gaël et Pierre-Antoine se sont concentrés sur l’ajout d’éléments visuels et interactifs liés à la quête 19, qui implique l’activation et l’explosion d’une bombe. Pierre-Antoine et Amine ont collaboré à la création d’une animation d’explosion synchronisée avec le script d’activation de la bombe. L’effet a été réalisé dans \textit{Unity} et enrichi par une texture externe, apportant un rendu visuel impactant et immersif. De plus, le système de spawners d’ennemis : Gaël et Pierre-Antoine ont développé un script de génération d’ennemis à des coordonnées spécifiques, entièrement intégré au système de quêtes. Ce script permet désormais de déclencher dynamiquement l’apparition d’ennemis en fonction du contexte narratif.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{bomb.png}
+    \caption{Explosion de la Bombe}
+\end{figure}
+
+\subsection*{Documentation (Gaël, Armand)}
+D’abord, le manuel d’utilisation a été rédigé par Gaël, ce document détaille de manière claire et structurée l’ensemble des fonctionnalités du jeu, les commandes disponibles, ainsi que les conseils pour une expérience de jeu optimale. Ensuite, le manuel d’installation et de désinstallation a été rédigé par Armand, ce guide technique permet à tout utilisateur d’installer, exécuter et désinstaller le jeu de manière autonome et sécurisée, en tenant compte des spécificités de l’environnement Unity et des plateformes ciblées. Enfin, Gaël a rédigé la version finale du rapport de projet en \LaTeX, assurant une mise en page professionnelle et une présentation soignée des résultats du développement, des choix techniques, des difficultés rencontrées et des perspectives futures.
+
+\subsection*{Programmation des Soins (Amine)}
+Au cours de cette dernière semaine, Amine a procédé à la finalisation complète de toutes les fonctionnalités liées au système médical du jeu. Cela consiste en la vérification approfondie de l’enchaînement du processus utilisateur, de la blessure initiale, au transport via ambulance, jusqu’à l’arrivée à l’hôpital et l’activation du soin. Cette étape a permis de garantir une expérience fluide et cohérente, assurant que chaque phase du système médical fonctionne sans interruption ni erreur.
+\newpage 
+\subsection*{Gestion de Projet (Gaël, Ethan, Pierre-Antoine, Armand, Amine)}
+Dans le cadre de la clôture du projet, Gaël a organisé et animé deux réunions clés afin d'assurer une répartition efficace des tâches et une livraison conforme aux attentes. La première réunion, le lundi, a été structurée selon le modèle de la matrice d’Eisenhower, permettant de distinguer clairement les tâches urgentes et importantes. L’objectif était de répartir de manière équilibrée les responsabilités finales entre les membres de l’équipe concernant les derniers ajustements sur le jeu, la préparation des livrables (documentation, diaporamas, manuels), et la finalisation du packaging et de la version exécutable. Cette initiative a permis de garantir une fin de projet fluide, organisée et collaborative. Une fois le développement achevé, une seconde réunion a été tenue pour procéder à une démonstration complète du jeu et à une revue technique des livrables. Cette session de vérification collective a permis de corriger les derniers détails, valider l’expérience utilisateur, et garantir la qualité du produit livré au client.
+
+
+\subsection*{Création du Site Web (Gaël)}
+En parallèle, Gaël a effectué une mise à jour complète du site web du projet, qui comprend l’ajout de vidéos de démonstration du jeu, l’Intégration des documents officiels (rapports, manuels, présentations), la mise à disposition d’un guide d’installation et de désinstallation ainsi que le manuel d’utilisation du jeu, et l’ajout d’un formulaire de contact avec adresse e-mail dédiée pour l’assistance.
+
+
+\subsection*{Programmation des Ennemis (Armand, Ethan)}
+
+C’était la dernière ligne droite du développement du jeu : créer le personnage du Boss final. Armand a utilisé une méthode similaire à celle employée pour les ennemis classiques, mais il s’est rapidement rendu compte que le résultat ressemblait trop à un simple adversaire. Il a donc poussé la personnalisation beaucoup plus loin. Le personnage du boss a été agrandi, et grâce aux centaines de points qui relient les droites pour former le maillage du modèle, Armand a modifié certains de ces points afin de lui donner une silhouette plus musclée, ce qui le rendait visuellement plus puissant et distinct des ennemis ordinaires. Il a également ajouté un gilet pare-balles, en jouant sur les formes et les couleurs, pour renforcer l’idée que le boss est plus résistant et redoutable que les autres ennemis.
+Il ne restait plus qu’à lui attribuer un squelette via \textit{Mixamo}, comme pour les autres personnages, puis à l’implémenter dans la quête finale.
+\\[0.4cm]
+Par ailleurs, Ethan a entrepris une restructuration des agents ennemis afin de simplifier leur gestion et d’optimiser leur intégration dans le jeu. Cette refonte vise à faciliter l’ajout de comportements spécifiques et à améliorer la flexibilité du système, en prévision de l’ajout en extension du gameplay.
+
+
+
+
+
+
+
+
+
+\newpage
+\part{Bibliographie et Sources}
+\chapter{Bibliographie et Sources}
+\section{Technique}
+
+\subsection{Structures de Données}
+\begin{itemize}
+    \item Arbre de compétences : Arbres binaires de recherche.
+    \item Arbre de compétences : Graphes orientés.
+    \item Map : Graphes non-orientés.
+    \item IA : Arbre de décision.
+\end{itemize}
+
+\subsection{Algorithmes}
+\begin{itemize}
+    \item Recherche d'un élément dans un arbre binaire de recherche (ABR).
+    \item Insertion d'un élément dans un ABR.
+    \item Suppression d'un élément dans un ABR.
+    \item Algorithmes pour détecter les cycles dans les graphes orientés.
+    \item Algorithme de Dijkstra.
+    \item Algorithme \texttt{A*}.
+\end{itemize}
+
+\subsection{Tutoriels}
+\begin{itemize}
+    \item Tutoriels Unity : youtube.com
+    \item Tutoriels Caméra Troisième Personne : youtube.com (Game Maker's Toolkit)
+    \item Tutoriels Animation : youtube.com (iHeartGameDev)
+    \item Tutoriels Armes : youtube.com (bananadev2)
+    \item Tutoriels Caméra : youtube.com (Dave / GameDevelopment)
+    \item Tutoriels Photon : youtube.com (Synty Studios)
+    \item Documentation Librairie Unity : docs.unity.com 
+    \item Documentation Librairie Mouvements : invector.xyz
+    \item Documentation Librairie Réseau : doc.photonengine.com
+    \item Assets de Qualité : sketchfab.com
+    \item Assets de Base https : assetstore.unity.com
+    \item Guides GitHub pour la gestion collaborative de projets : docs.github.com
+    \item Tutoriels Photon : youtube.com
+\end{itemize}
+
+\newpage
+\section{Inspiration}
+\subsection{Histoire}
+\begin{itemize}
+    \item Références cinématographiques : Le Parrain.
+    \item Références historiques : Familles mafieuses italiennes du XXe siècle.
+    \item Inspiration des personnages : Peaky Blinders.
+    \item Conflits familiaux : Game of Thrones.
+\end{itemize}
+
+\subsection{Fonctionnalités}
+\begin{itemize}
+    \item Arbre de compétences : Jedi : Fallen Order (Electronic Arts).
+    \item Mécaniques furtives : Hitman (Warner Bros Games)
+    \item Interface Utilisateur : Dome Keeper (Rawfury Games)
+    \item Mini-Map : Lego City Undercover (Nintendo)
+    
+\end{itemize}
+
+\newpage
+\chapter*{Conclusion}
+Le projet Bloodline Heritage représente une aventure collaborative et ambitieuse menée par notre équipe composée de notre chef de projet Ethan ROUIM, Gaël KERNINON, Armand MEESEMAECKER SHAHAPUNI, Amine SABRI, et Pierre-Antoine SOUBRIER. Chacun a apporté ses compétences uniques, sa créativité, et son dévouement pour donner vie à un jeu captivant, immersif et techniquement fonctionnel, bien que non abouti.
+\\[0.4cm]
+L’une des forces majeures de notre équipe réside dans la complémentarité de nos compétences. Ethan, par son leadership et ses talents en programmation, a su diriger la mise en œuvre des mécaniques complexes et coordonner les avancées techniques essentielles, comme l’intégration du multijoueur et le développement des armes. Armand a montré un talent exceptionnel dans la conception et la mise en place du site web, offrant une vitrine immersive et soignée pour le projet, tout en assurant une navigation intuitive et un style en harmonie avec l’univers du jeu.
+\\[0.4cm]
+De son côté, Gaël a joué un rôle crucial dans la conception artistique et narrative. Ses contributions au design de l’interface utilisateur, au design l’arbre des compétences et à l’élaboration des scénarios démontrent une attention minutieuse aux détails et une vision globale qui a enrichi l’expérience de jeu. De plus, Gaël a joué un rôle essentiel dans la gestion de l'équipe en assurant la rédaction des rapports, en veillant à l'implémentation des fonctionnalités dans le respect des délais, et en organisant des réunions régulières pour garantir l'achèvement du projet dans le temps imparti.  Amine, quant à lui a apporté une énergie déterminante à la création graphique et à l’interface, transformant les concepts en éléments visuels concrets et engageants. Enfin, Pierre-Antoine a mis ses compétences pour créer une intelligence artificielle au service du projet, en posant les bases des comportements dynamiques des ennemis, un élément clé pour les joueurs.
+\\[0.4cm]
+Malgré les défis rencontrés, qu'ils soient techniques, organisationnels ou liés aux délais, nous avons su travailler main dans la main, favorisant une communication ouverte et une répartition efficace et réfléchie des tâches. Ce projet nous a permis de renforcer nos compétences individuelles tout en consolidant notre esprit d’équipe, un atout majeur qui a permis de surmonter chaque obstacle avec succès.
+\\[0.4cm]
+Bloodline Heritage sera bientôt le résultat de mois de travail intense et d’une véritable passion pour le développement. Bien que ce projet marque un moment important dans notre parcours, il est également une promesse : celle de continuer à améliorer la créativité dans nos futurs projets.
+\\[0.4cm]
+Nous sommes fiers de ce que nous avons accompli ensemble, et nous espérons que les joueurs partageront la même passion et le même enthousiasme que nous avons investis dans la création de ce jeu.
+\end{document}
